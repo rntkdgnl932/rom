@@ -79,7 +79,7 @@ def get_chulsuk(cla):
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\chul_point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(80, 90, 240, 120, cla, img, 0.7)
+                            imgs_ = imgs_set_(80, 90, 240, 120, cla, img, 0.65)
                             if imgs_ is not None and imgs_ != False:
                                 print("menu_point 1", imgs_.x, imgs_.y)
                                 click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
