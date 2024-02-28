@@ -41,6 +41,15 @@ def clean_screen(cla):
                     print("dead_close", imgs_.x, imgs_.y)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                # lv 닫기
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(200, 70, 250, 120, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("lv_close", imgs_.x, imgs_.y)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
                 # 가방 닫기
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\bag_close.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

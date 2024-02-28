@@ -48,7 +48,16 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    dead_recover(cla)
+    # clean_screen(cla)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(200, 70, 250, 120, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("dead_close", imgs_.x, imgs_.y)
+    else:
+        print("안 보여")
 
     # data = "던전_일반_카타콤_1"
     # result_check = dungeon_check(cla, data)
