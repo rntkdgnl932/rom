@@ -46,7 +46,7 @@ def tuto_start(cla):
                         print("main_quest_clicked 1", imgs_.x, imgs_.y)
                         break
                     else:
-                        click_pos_reg(50, 105, cla)
+                        click_pos_2(50, 105, cla)
                     time.sleep(0.3)
 
                 # 퀘스트 진행중
@@ -99,7 +99,7 @@ def tuto_start(cla):
                                     break
                                 time.sleep(0.2)
                         else:
-                            click_pos_reg(875, 550, cla)
+                            click_pos_2(875, 550, cla)
 
                         for i in range(20):
                             result_tuto = tuto_ing(cla)

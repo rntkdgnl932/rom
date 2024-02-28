@@ -125,7 +125,7 @@ def get_chulsuk(cla):
                 result_out = out_check(cla)
 
                 if result_out == True:
-                    click_pos_reg(930, 45, cla)
+                    click_pos_2(930, 45, cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\action\\menu_open\\menu_restart.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -218,7 +218,7 @@ def get_post(cla):
                                 print("menu_point 1", imgs_.x, imgs_.y)
                                 click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
                                 time.sleep(0.5)
-                                click_pos_reg(865, 550, cla)
+                                click_pos_2(865, 550, cla)
                             else:
                                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_post.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -234,7 +234,7 @@ def get_post(cla):
                 result_out = out_check(cla)
 
                 if result_out == True:
-                    click_pos_reg(930, 45, cla)
+                    click_pos_2(930, 45, cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\action\\menu_open\\menu_restart.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -312,7 +312,7 @@ def get_upjuk(cla):
                             print("main_quest_clicked 2", imgs_.x, imgs_.y)
                             break
                         else:
-                            click_pos_reg(280, 105, cla)
+                            click_pos_2(280, 105, cla)
                         time.sleep(0.3)
 
 
