@@ -93,13 +93,31 @@ def get_chulsuk(cla):
                                     print("menu_point 2", imgs_.x, imgs_.y)
                                     click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
                             else:
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_chulsuk.PNG"
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\chul_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(870, 30, 950, 80, cla, img, 0.7)
+                                imgs_ = imgs_set_(80, 90, 240, 120, cla, img, 0.65)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
+                                    print("menu_point 1", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                                    time.sleep(0.5)
+
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\menu_point_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(880, 445, 920, 475, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("menu_point 2", imgs_.x, imgs_.y)
+                                        click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
+
+                                else:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_chulsuk.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(870, 30, 950, 80, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                         time.sleep(0.5)
 
 

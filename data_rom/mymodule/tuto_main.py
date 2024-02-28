@@ -198,12 +198,20 @@ def tuto_ing(cla):
                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\lv\\zero.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(170, 110, 220, 145, cla, img, 0.9)
+                    imgs_ = imgs_set_(170, 110, 220, 145, cla, img, 0.88)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(200, 375, cla)
                         break
                     else:
-                        click_pos_2(210, 225, cla)
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\lv\\zero2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(170, 110, 220, 145, cla, img, 0.88)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(200, 375, cla)
+                            break
+                        else:
+                            click_pos_2(210, 225, cla)
                     time.sleep(0.2)
                 else:
                     time.sleep(0.3)
