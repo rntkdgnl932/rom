@@ -25,6 +25,7 @@ def collection_start(cla):
             collect_count += 1
             if collect_count > 7:
                 collect_ = True
+                v_.collection_today = False
                 clean_screen(cla)
 
             # 스타트버튼

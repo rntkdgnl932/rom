@@ -11,6 +11,8 @@ tuto_dead = 0
 black_screen_count = 0
 # 부활금지
 not_boohwal = False
+# 콜렉션 관련
+collection_today = True
 
 
 # 게임 및 폴더 관련

@@ -59,7 +59,10 @@ def menu_open(cla):
                         imgs_ = imgs_set_(850, 85, 880, 110, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             print("get_collection : menu_point", imgs_.x, imgs_.y)
-                            collection_start(cla)
+                            if v_.collection_today == True:
+                                collection_start(cla)
+                            else:
+                                menu_opened = True
                         else:
                             menu_opened = True
 
