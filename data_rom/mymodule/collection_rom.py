@@ -13,7 +13,7 @@ def collection_start(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check, menu_open
+    from action_rom import out_check, menu_open_pure
     from clean_screen_rom import clean_screen
 
     try:
@@ -91,7 +91,7 @@ def collection_start(cla):
                 else:
                     collect_count += 1
             else:
-                menu_open(cla)
+                menu_open_pure(cla)
 
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\menu_collect.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
