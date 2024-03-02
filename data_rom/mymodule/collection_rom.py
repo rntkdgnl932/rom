@@ -42,7 +42,7 @@ def collection_start(cla):
                 imgs_ = imgs_set_(140, 80, 600, 110, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
 
-                    
+
 
                     print("col_title_point", imgs_)
                     click_pos_2(50, 105, cla)

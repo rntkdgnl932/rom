@@ -566,6 +566,13 @@ def dungeon_join(cla, data):
                             # 공격버튼 누르기
                             click_pos_2(895, 455, cla)
                             break
+                        else:
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(2)
 
             else:
@@ -596,8 +603,10 @@ def dungeon_join(cla, data):
 def dungeon_check(cla, data):
     import numpy as np
     import cv2
+    import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, menu_open, juljun_on
+    from massenger import line_to_me
 
     try:
         print("dungeon_check", data)
@@ -637,133 +646,166 @@ def dungeon_check(cla, data):
             if imgs_ is not None and imgs_ != False:
 
                 dun_ = True
-
-
-
                 print("절전모드")
 
-                if dun_2 == "고대미궁":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_godae_migoong.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_logout.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("튕김")
+                    why = "롬" + str(data) + " 던전 사냥 중 튕겼다."
+                    print(why)
+                    line_to_me(v_.now_cla, why)
 
-                elif dun_2 == "카타콤":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_katacom.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
+                    dir_path = "C:\\my_games\\load\\rom"
+                    file_path = dir_path + "\\start.txt"
+                    file_path2 = dir_path + "\\cla.txt"
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        data = 'no'
+                        file.write(str(data))
+                        time.sleep(0.2)
+                    with open(file_path2, "w", encoding='utf-8-sig') as file:
+                        data = v_.now_cla
+                        file.write(str(data))
+                        time.sleep(0.2)
+                    os.execl(sys.executable, sys.executable, *sys.argv)
+                else:
 
-                elif dun_2 == "드베르그":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_dberg.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                    if dun_2 == "고대미궁":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_godae_migoong.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
 
-                elif dun_2 == "사막동굴":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_samac_cave.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                    elif dun_2 == "카타콤":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_katacom.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
-                elif dun_2 == "지하신전":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_under_temple.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+
+                    elif dun_2 == "드베르그":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_dberg.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
-                elif dun_2 == "환영의유적":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_hwanyuong.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+
+                    elif dun_2 == "사막동굴":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_samac_cave.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
-                elif dun_2 == "시간의미궁":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_time.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+                    elif dun_2 == "지하신전":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_under_temple.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
-                elif dun_2 == "얼음신전":
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_ice_temple.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        where_ = True
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+                    elif dun_2 == "환영의유적":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_hwanyuong.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            hunting_ = True
-                # elif dun_2 == "혼돈의성채":
-                #
-                # elif dun_2 == "정령의성채채":
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+                    elif dun_2 == "시간의미궁":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_time.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+                    elif dun_2 == "얼음신전":
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_ice_temple.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            where_ = True
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 110, 550, 165, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                hunting_ = True
+                    # elif dun_2 == "혼돈의성채":
+                    #
+                    # elif dun_2 == "정령의성채채":
 
 
             else:
-                juljun_on(cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_dungeon.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 30, 950, 80, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        break
-                    time.sleep(0.5)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    juljun_on(cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.5)
             time.sleep(0.5)
         return where_, hunting_
     except Exception as e:
