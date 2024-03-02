@@ -25,7 +25,7 @@ def collection_start(cla):
             collect_count += 1
             if collect_count > 7:
                 collect_ = True
-                v_.collection_today = False
+
                 clean_screen(cla)
 
             # 스타트버튼
@@ -42,7 +42,7 @@ def collection_start(cla):
                 imgs_ = imgs_set_(140, 80, 600, 110, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
 
-                    collect_count = 3
+                    
 
                     print("col_title_point", imgs_)
                     click_pos_2(50, 105, cla)
@@ -90,7 +90,8 @@ def collection_start(cla):
                             break
                         time.sleep(0.1)
                 else:
-                    collect_count += 1
+                    v_.collection_today = False
+                    collect_ = True
             else:
                 menu_open_pure(cla)
 
