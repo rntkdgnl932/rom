@@ -44,7 +44,8 @@ from function_game import imgs_set, imgs_set_, click_pos_2, random_int, text_che
 
 from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
-
+from character_select import character_screen_check
+from dungeon_rom import dungeon_start
 
 from stop_event18 import _stop_please
 
@@ -3200,7 +3201,7 @@ class game_Playing(QThread):
                                 result_schedule_ = result_schedule[0][2]
 
                                 # 게임 시작 화면인지 분석부터 하기
-                                # game_start_screen(v_.now_cla, character_id)
+                                character_screen_check(v_.now_cla, character_id)
 
                                 # 18 이벤트창부터 끄자
                                 _stop_please(v_.now_cla)
@@ -3218,7 +3219,8 @@ class game_Playing(QThread):
 
                                 if result_schedule_ == "튜토육성":
                                     tuto_start(v_.now_cla)
-                                    print("start")
+                                elif "던전" in result_schedule_:
+                                    dungeon_start(v_.now_cla, result_schedule_)
 
                                 time.sleep(0.5)
                         else:

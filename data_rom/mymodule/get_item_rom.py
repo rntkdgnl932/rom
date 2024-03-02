@@ -271,7 +271,7 @@ def get_upjuk(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check, menu_open
+    from action_rom import out_check, menu_open_pure
     from clean_screen_rom import clean_screen
 
     try:
@@ -363,7 +363,7 @@ def get_upjuk(cla):
 
             else:
 
-                menu_open(cla)
+                menu_open_pure(cla)
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\menu_quest.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -377,6 +377,119 @@ def get_upjuk(cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(870, 30, 950, 80, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.5)
+
+
+
+
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def get_mission(cla):
+    import numpy as np
+    import cv2
+    import pyautogui
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action_rom import out_check, menu_open_pure
+    from clean_screen_rom import clean_screen
+
+    try:
+        print("get_mission")
+
+        if cla == "one":
+            plus = 0
+        elif cla == "two":
+            plus = 960
+        elif cla == "three":
+            plus = 960 * 2
+        elif cla == "four":
+            plus = 960 * 3
+
+        menu_opened = False
+        menu_opened_count = 0
+        while menu_opened is False:
+            menu_opened_count += 1
+            if menu_opened_count > 7:
+                menu_opened = True
+
+            # 퀘스트 컨텐츠
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(740, 115, 800, 150, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("x_close", imgs_.x, imgs_.y)
+
+                menu_opened = True
+
+                # click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\mission_complete_full.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                for ix in pyautogui.locateAllOnScreen(img, region=(370 + plus, 330, 70, 475), confidence=0.97):
+                    print(ix, ix.left, ix.top)
+                    click_pos_reg(ix.left + 46, ix.top, cla)
+                    for c in range(5):
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(530, 140, 580, 170, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("lv_close", imgs_.x, imgs_.y)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            break
+                        time.sleep(0.1)
+
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\mission_complete_full.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                for iy in pyautogui.locateAllOnScreen(img, region=(680 + plus, 330, 70, 475), confidence=0.97):
+                    print(iy, iy.left, iy.top)
+                    click_pos_reg(iy.left + 46, iy.top, cla)
+                    for c in range(5):
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(530, 140, 580, 170, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("lv_close", imgs_.x, imgs_.y)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            break
+                        time.sleep(0.1)
+
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(740, 115, 800, 150, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+            else:
+
+                menu_open_pure(cla)
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\menu_mission.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(750, 130, 950, 250, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("menu_mission", imgs_.x, imgs_.y)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(740, 115, 800, 150, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.5)

@@ -21,8 +21,9 @@ def go_test():
     from dead import dead_recover
     from clean_screen_rom import clean_screen
 
-    from get_item_rom import get_chulsuk, get_post, get_upjuk
+    from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
     from potion_rom import potion_buy, juljun_potion_check
+    from collection_rom import collection_start
 
 
     print("test")
@@ -48,16 +49,70 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    # clean_screen(cla)
+    get_mission(cla)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\menu_point.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(200, 70, 250, 120, cla, img, 0.7)
+    imgs_ = imgs_set_(895, 135, 915, 155, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("dead_close", imgs_.x, imgs_.y)
+        print("get_mission : menu_point", imgs_.x, imgs_.y)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(130, 410, 160, 435, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("dun com[lete")
     else:
-        print("안 보여")
+        print("nonnnononono")
+
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\mission_complete_full.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(680, 330, 750, 475, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("mission_complete_full", imgs_.x, imgs_.y)
+    #
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\mission_complete_full.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # for ix in pyautogui.locateAllOnScreen(img, region=(370 + plus, 330, 70, 475), confidence=0.97):
+    #     print(ix, ix.left, ix.top)
+    #     click_pos_reg(ix.left + 46, ix.top, cla)
+    #     for c in range(5):
+    #         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(530, 140, 580, 170, cla, img, 0.7)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print("lv_close", imgs_.x, imgs_.y)
+    #             click_pos_reg(imgs_.x, imgs_.y, cla)
+    #             time.sleep(0.2)
+    #             break
+    #         time.sleep(0.1)
+    #
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\mission_complete_full.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # for iy in pyautogui.locateAllOnScreen(img, region=(680 + plus, 330, 70, 475), confidence=0.97):
+    #     print(iy, iy.left, iy.top)
+    #     click_pos_reg(iy.left + 46, iy.top, cla)
+    #     for c in range(5):
+    #         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(530, 140, 580, 170, cla, img, 0.7)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print("lv_close", imgs_.x, imgs_.y)
+    #             click_pos_reg(imgs_.x, imgs_.y, cla)
+    #             time.sleep(0.2)
+    #             break
+    #         time.sleep(0.1)
+    #     # last_x = i.left
+    #     # last_y = i.top
+    #     # print("last_x", last_x)
+    #     # print("last_y", last_y)
 
     # data = "던전_일반_카타콤_1"
     # result_check = dungeon_check(cla, data)
