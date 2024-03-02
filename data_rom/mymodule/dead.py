@@ -14,6 +14,7 @@ def dead_check(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check
+    from schedule import myQuest_play_add, myQuest_play_check
 
     try:
         print("dead_check")
@@ -26,6 +27,7 @@ def dead_check(cla):
         imgs_ = imgs_set_(430, 170, 520, 220, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             print("dead_title", imgs_.x, imgs_.y)
+
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -34,6 +36,14 @@ def dead_check(cla):
                 print("dead_confirm", imgs_.x, imgs_.y)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 recovery = True
+
+                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                print("result_schedule", result_schedule)
+                character_id = result_schedule[0][1]
+                result_schedule_ = result_schedule[0][2]
+
+                if result_schedule_ == "튜토육성":
+                    myQuest_play_add(cla, result_schedule_)
 
         return recovery
     except Exception as e:

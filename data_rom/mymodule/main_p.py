@@ -46,6 +46,8 @@ from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
 from character_select import character_screen_check
 from dungeon_rom import dungeon_start
+from jadong_rom import jadong_start
+from dead import dead_check
 
 from stop_event18 import _stop_please
 
@@ -934,11 +936,11 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 각종템받기, 거래소등록하기, 의뢰')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성', '의뢰_세라보그', '의뢰_바란', '의뢰_국경지대', '의뢰_유로키나산맥']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '거래소등록', '튜토육성', '자동사냥']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
-        maul_add = QPushButton('육성 및 행동 추가')
+        maul_add = QPushButton('육성 및 자동사냥 추가')
         maul_add.clicked.connect(self.onActivated_maul_add)
 
         vbox6.addWidget(maul_add)
@@ -1607,13 +1609,13 @@ class FirstTab(QWidget):
 
     def onActivated_maul(self, text):
         global onMaul
-        if text != 0 and text != '마을 의뢰 장소 선택':
+        if text != 0 or text != '스케쥴 선택':
             onMaul = text
             print('onMaul', onMaul)
         else:
             onMaul = 'none'
-            pyautogui.alert(button='넵', text='마을 의뢰 장소를 선택해 주시지예', title='뭐합니꺼')
-            print("마을 의뢰 장소를 선택해 주세요.")
+            pyautogui.alert(button='넵', text='스케쥴을 선택해 주시지예', title='뭐합니꺼')
+            print("스케쥴을 선택해 주세요.")
 
     def onActivated_re_time(self):
         global onRefresh_time
@@ -1841,8 +1843,8 @@ class FirstTab(QWidget):
         maul_ = onMaul
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onMaul == '마을 의뢰 장소 선택' or onMaul == 'none':
-            pyautogui.alert(button='넵', text='마을 의뢰 장소를 선택해 주시지예', title='아 진짜 뭐합니꺼')
+        elif onMaul == '스케쥴 선택' or onMaul == 'none':
+            pyautogui.alert(button='넵', text='스케쥴을 선택해 주시지예', title='아 진짜 뭐합니꺼')
         elif onCharacter != 0 and onMaul != '마을 의뢰 장소 선택':
             print('char_', char_)
             print('maul_', maul_)
@@ -3207,7 +3209,7 @@ class game_Playing(QThread):
                                 _stop_please(v_.now_cla)
 
                                 # 죽었는지 파악
-                                # dead_die(v_.now_cla, result_schedule_)
+                                dead_check(v_.now_cla)
 
                                 # 일시적인 이벤트(5000)
                                 # temporary_event_start(v_.now_cla)
@@ -3221,6 +3223,8 @@ class game_Playing(QThread):
                                     tuto_start(v_.now_cla)
                                 elif "던전" in result_schedule_:
                                     dungeon_start(v_.now_cla, result_schedule_)
+                                elif result_schedule_ == "자동사냥":
+                                    jadong_start(v_.now_cla)
 
                                 time.sleep(0.5)
                         else:

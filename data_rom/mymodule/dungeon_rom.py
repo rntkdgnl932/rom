@@ -621,13 +621,6 @@ def dungeon_check(cla, data):
         dun_2 = dun_[2]  # 종류
         dun_3 = dun_[3]  # 층수
 
-        # 절전 던전 모드 확인하기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("절전모드")
 
         dun_ = False
         dun_count = 0
