@@ -51,7 +51,21 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    collection_start(cla)
+    # collection_start(cla)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\col_des_point.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(910, 180, 945, 205, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("col_des_point 1", imgs_)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\col_checked.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(890, 230, 945, 530, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("col_checked 2", imgs_)
 
     # my_property_upload(cla)
 
