@@ -244,6 +244,10 @@ def dead_recover(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         print("dead_confirm", imgs_.x, imgs_.y)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                        # 장비 복구 메신져 보내기
+                                        why = "장비 복구 했다. 반드시 확인하라"
+                                        line_to_me(cla, why)
                                         break
                                 time.sleep(0.2)
 

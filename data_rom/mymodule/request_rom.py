@@ -124,26 +124,51 @@ def request_start(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.3)
 
-                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\quest_ing_2.PNG"
+                            # 레벨 맞는지 다시 체크
+
+                            over_lv = True
+
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(800, 520, 940, 570, cla, img, 0.7)
+                            imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
                             if imgs_ is not None and imgs_ != False:
-                                print("퀘스트 진행중")
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.2)
-
-                                for c in range(10):
-                                    result_move = confirm_all(cla)
-                                    if result_move == True:
-                                        break
+                                over_lv = False
+                            else:
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
+                                if imgs_ is not None and imgs_ != False:
+                                    over_lv = False
+                            if over_lv == False:
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\quest_ing_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(800, 520, 940, 570, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("퀘스트 진행중")
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(0.2)
 
-                            for i in range(50):
-                                result_tuto = tuto_ing(cla)
-                                if result_tuto == True:
-                                    break
-                                time.sleep(1)
+                                    for c in range(10):
+                                        result_move = confirm_all(cla)
+                                        if result_move == True:
+                                            break
+                                        time.sleep(0.2)
+
+                                for i in range(50):
+                                    result_tuto = tuto_ing(cla)
+                                    if result_tuto == True:
+                                        break
+                                    time.sleep(1)
+                            else:
+                                click_pos_2(730, 550, cla)
+                                for i in range(10):
+                                    result_confirm = confirm_all(cla)
+                                    if result_confirm == True:
+                                        break
+                                    time.sleep(0.3)
 
                     else:
                         # 의뢰 대기중
@@ -169,14 +194,14 @@ def request_start(cla):
                                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
+                                    imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_2(870, 550, cla)
                                     else:
                                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
+                                        imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_2(870, 550, cla)
                                         else:
