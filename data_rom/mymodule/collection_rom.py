@@ -122,6 +122,7 @@ def collection_start(cla):
                 imgs_ = imgs_set_(750, 80, 930, 150, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
                     for i in range(10):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_collect.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
