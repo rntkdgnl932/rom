@@ -145,49 +145,49 @@ def request_start(cla):
                                     break
                                 time.sleep(1)
 
-                        else:
-                            # 의뢰 대기중
-                            click_pos_2(125, 105, cla)
-                            time.sleep(0.5)
-                            for p in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
+                    else:
+                        # 의뢰 대기중
+                        click_pos_2(125, 105, cla)
+                        time.sleep(0.5)
+                        for p in range(10):
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
+                                # 235, 115, 290, 450
+                                for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
+                                                                      confidence=0.9):
+                                    print(ix, ix.left, ix.top)
+                                    click_pos_reg(ix.left, ix.top, cla)
+
+                                    time.sleep(0.3)
+
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    # 235, 115, 290, 450
-                                    for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
-                                                                          confidence=0.9):
-                                        print(ix, ix.left, ix.top)
-                                        click_pos_reg(ix.left, ix.top, cla)
-
-                                        time.sleep(0.3)
-
-                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
+                                    imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(870, 550, cla)
+                                    else:
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_2(870, 550, cla)
                                         else:
-                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_2(870, 550, cla)
-                                            else:
-                                                pass
-                                        time.sleep(0.7)
+                                            pass
+                                    time.sleep(0.7)
 
 
-                                    break
-                                else:
-                                    click_pos_2(205, 105, cla)
-                                time.sleep(1)
+                                break
+                            else:
+                                click_pos_2(205, 105, cla)
+                            time.sleep(1)
         else:
 
             tuto_ing(cla)
