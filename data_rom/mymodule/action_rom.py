@@ -164,6 +164,7 @@ def out_check(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from dead import dead_check, dead_recover
 
     try:
 
@@ -178,6 +179,10 @@ def out_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("out_keyboard", imgs_.x, imgs_.y)
             out_ = True
+        # 수시로 체크
+        result_dead = dead_check(cla)
+        if result_dead == True:
+            dead_recover(cla)
 
         return out_
 
