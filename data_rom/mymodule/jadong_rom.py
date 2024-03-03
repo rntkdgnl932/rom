@@ -14,7 +14,7 @@ def jadong_start(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check
-    from potion_rom import juljun_potion_check
+    from potion_rom import juljun_potion_check, potion_buy
 
     try:
         print("jadong_start")
@@ -25,7 +25,9 @@ def jadong_start(cla):
         if result_check == True:
             print("정상 자동 사냥 중")
             # 물약 파악
-            juljun_potion_check(cla)
+            result_potion = juljun_potion_check(cla)
+            if result_potion == False:
+                potion_buy(cla)
 
         else:
             # 사냥터로 이동

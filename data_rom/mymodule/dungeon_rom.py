@@ -14,7 +14,7 @@ def dungeon_start(cla, data):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, menu_open, juljun_off, juljun_on
-    from potion_rom import juljun_potion_check
+    from potion_rom import juljun_potion_check, potion_buy
 
     try:
         print("dungeon_start", data)
@@ -25,7 +25,9 @@ def dungeon_start(cla, data):
         if result_check[0] == True and result_check[1] == True:
             print("정상 사냥 중", data)
             # 물약 파악
-            juljun_potion_check(cla)
+            result_potion = juljun_potion_check(cla)
+            if result_potion == False:
+                potion_buy(cla)
 
         elif result_check[0] == False:
             # 사냥터로 이동
