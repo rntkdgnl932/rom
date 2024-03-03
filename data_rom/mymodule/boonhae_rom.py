@@ -50,7 +50,7 @@ def boonhae_start(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("checked 2", imgs_)
                 else:
-                    # click_pos_2(810, 405, cla)
+                    click_pos_2(810, 405, cla)
                     time.sleep(0.3)
 
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\boonhae\\0_20.PNG"
