@@ -16,10 +16,12 @@ def go_test():
     import random
     from tuto_main import tuto_start
     from action_rom import menu_open, juljun_off, juljun_on, moving_check
-    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, mouse_move_cpp
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, mouse_move_cpp, text_check_get, in_number_check, int_put_
     from dungeon_rom import dungeon_start, dungeon_check
     from dead import dead_recover
     from clean_screen_rom import clean_screen
+    from auction_rom import auction_start
+    from property_rom import my_property_upload
 
     from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
     from potion_rom import potion_buy, juljun_potion_check
@@ -27,7 +29,7 @@ def go_test():
 
 
     print("test")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -49,28 +51,43 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_dungeon.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 30, 950, 80, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("dun.........")
+    auction_start(cla)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\menu_point.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(895, 135, 915, 155, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("get_mission : menu_point", imgs_.x, imgs_.y)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(130, 410, 160, 435, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("dun com[lete")
-    else:
-        print("nonnnononono")
+    # my_property_upload(cla)
+
+    # read_dia = text_check_get(518, 77, 549, 90, cla)
+    # if read_dia == "":
+    #     print("다이아 못 읽음")
+    # else:
+    #     print("read_dia", read_dia)
+    #
+    # read_gold = text_check_get(500, 99, 549, 112, cla)
+    # if read_gold == "":
+    #     print("골드 못 읽음")
+    # else:
+    #     print("read_gold", read_gold)
+
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_1.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(680, 130, 920, 530, cla, img, 0.75)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("거래물건 있음 skillbook_knight_1", imgs_)
+    # else:
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_2.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(680, 130, 920, 530, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("거래물건 있음 skillbook_knight_2", imgs_)
+    #     else:
+    #         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_3.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(680, 130, 920, 530, cla, img, 0.75)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print("거래물건 있음 skillbook_knight_3", imgs_)
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\mission_complete_full.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
