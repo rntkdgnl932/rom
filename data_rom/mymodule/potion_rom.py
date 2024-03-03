@@ -336,6 +336,7 @@ def juljun_potion_check(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, juljun_on
+    from collection_rom import collection_start
 
     try:
         print("juljun_potion_check")
@@ -364,6 +365,15 @@ def juljun_potion_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("물약 없다")
                     is_potion = False
+
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("가방 꽉 찼다")
+                    v_.collection_today = True
+                    collection_start(cla)
 
 
             else:

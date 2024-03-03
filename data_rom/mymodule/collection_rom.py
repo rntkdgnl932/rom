@@ -12,6 +12,7 @@ sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder)
 def collection_start(cla):
     import numpy as np
     import cv2
+    import pyautogui
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, menu_open_pure
     from clean_screen_rom import clean_screen
@@ -19,6 +20,15 @@ def collection_start(cla):
 
     try:
         print("collection_start")
+
+        if cla == "one":
+            plus = 0
+        elif cla == "two":
+            plus = 960
+        elif cla == "three":
+            plus = 960 * 2
+        elif cla == "four":
+            plus = 960 * 3
 
         collect_ = False
         collect_count = 0
@@ -104,8 +114,23 @@ def collection_start(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(890, 230, 945, 530, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y + 35, cla)
-                            time.sleep(0.2)
+                                break
+                            time.sleep(0.1)
+
+                        # ...
+
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\col_checked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        for ix in pyautogui.locateAllOnScreen(img, region=(890 + plus, 230, 55, 300), confidence=0.9):
+                            print(ix, ix.left, ix.top)
+                            x_reg = ix.left
+                            y_reg = ix.top
+
+                        time.sleep(0.1)
+                        click_pos_reg(x_reg, y_reg  + 35, cla)
+                        time.sleep(0.1)
+
                         boonhae_start(cla)
                         v_.collection_today = False
                         collect_ = True
