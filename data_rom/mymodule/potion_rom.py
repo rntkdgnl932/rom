@@ -116,12 +116,12 @@ def potion_buy_start(cla):
                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(920, 200, 945, 260, cla, img, 0.7)
+                    imgs_ = imgs_set_(900, 200, 930, 260, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("clicked 1", imgs_)
                         break
                     else:
-                        click_pos_2(947, 235, cla)
+                        click_pos_2(935, 235, cla)
                     time.sleep(0.5)
                 # 내 잡화 물약 클릭
                 for i in range(10):
@@ -376,3 +376,54 @@ def juljun_potion_check(cla):
         print(e)
         return 0
 
+def out_potion_check(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action_rom import out_check, juljun_on
+    from clean_screen_rom import clean_screen
+
+    try:
+        print("out_potion_check")
+
+        is_potion = True
+
+        check_ = False
+        check_count = 0
+        while check_ is False:
+            check_count += 1
+            if check_count > 7:
+                check_ = True
+
+            result_out = out_check(cla)
+
+            if result_out == True:
+
+                check_ = True
+
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_big_zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 540, 725, 570, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("out_big_zero 1", imgs_.x, imgs_.y)
+                    is_potion = False
+                else:
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_small_zero.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 540, 725, 570, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("out_small_zero 2", imgs_.x, imgs_.y)
+                        is_potion = False
+
+
+            else:
+                clean_screen(cla)
+
+            time.sleep(0.5)
+
+        return is_potion
+    except Exception as e:
+        print(e)
+        return 0

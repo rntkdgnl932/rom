@@ -12,12 +12,23 @@ sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder)
 def request_start(cla):
     import numpy as np
     import cv2
+    import pyautogui
     from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos
     from action_rom import menu_open, confirm_all
     from get_item_rom import get_upjuk
+    from schedule import myQuest_play_add
 
     try:
         print("request_start")
+
+        if cla == "one":
+            plus = 0
+        elif cla == "two":
+            plus = 960
+        elif cla == "three":
+            plus = 960 * 2
+        elif cla == "four":
+            plus = 960 * 3
 
         # 퀘스트 컨텐츠
         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_quest.PNG"
@@ -41,100 +52,142 @@ def request_start(cla):
                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.8)
+                    imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         print("main_quest_clicked 1", imgs_.x, imgs_.y)
+                        time.sleep(0.2)
                         break
                     else:
                         click_pos_2(205, 105, cla)
                     time.sleep(0.3)
 
-                # 의뢰 진행중인지 파악
-
-                re_ing = False
-
-                for i in range(3):
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\request_ing.PNG"
+                # 의뢰 보상받기
+                for i in range(10):
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_complete.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(235, 115, 290, 450, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("request_ing", imgs_.x, imgs_.y)
-                        re_ing = True
-                        break
+                        print("re_complete", imgs_.x, imgs_.y)
+                        click_pos_2(870, 550, cla)
+                        time.sleep(0.2)
                     else:
-                        drag_pos(170, 380, 170, 140, cla)
+                        break
                     time.sleep(0.3)
 
-                # 퀘스트 진행중
-                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\request_ing.PNG"
+                # 의뢰 완료 되었는지 파악
+
+                re_complete_ = False
+
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_zero_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(235, 115, 290, 450, cla, img, 0.8)
+                imgs_ = imgs_set_(65, 445, 100, 470, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("request_ing", imgs_.x, imgs_.y)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.3)
-
-                    complete_ = False
-
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\quest_complete.PNG"
+                    print("re_zero_1", imgs_)
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_zero_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(800, 520, 940, 570, cla, img, 0.7)
+                    imgs_ = imgs_set_(250, 445, 285, 470, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("의뢰 complete", imgs_)
-                        complete_ = True
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        print("re_zero_2", imgs_)
+                        re_complete_ = True
 
-                    if complete_ == True:
-                        for c in range(10):
-                            result_click = confirm_all(cla)
-                            if result_click == True:
-                                break
-                            else:
-                                time.sleep(0.3)
-                    else:
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\quest_ing_2.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(800, 520, 940, 570, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("퀘스트 진행중")
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.2)
-
-                            for c in range(10):
-                                result_move = confirm_all(cla)
-                                if result_move == True:
-                                    break
-                                time.sleep(0.2)
-                        else:
-                            click_pos_2(875, 550, cla)
-
-                        for i in range(20):
-                            result_tuto = tuto_ing(cla)
-                            if result_tuto == True:
-                                break
-                            time.sleep(1)
-
+                if re_complete_ == True:
+                    myQuest_play_add(cla, "의뢰하기")
                 else:
-                    # 의뢰 대기중
-                    click_pos_2(125, 105, cla)
-                    time.sleep(0.5)
-                    for p in range(10):
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
+
+                    # 의뢰 진행중인지 파악
+                    re_ing = False
+
+                    for i in range(3):
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\request_ing.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.8)
+                        imgs_ = imgs_set_(235, 115, 290, 450, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            for i in range(6):
-                                click_pos_2(870, 550, cla)
-                                time.sleep(0.2)
+                            print("request_ing", imgs_.x, imgs_.y)
+                            re_ing = True
                             break
                         else:
-                            click_pos_2(205, 105, cla)
-                        time.sleep(1)
+                            drag_pos(170, 380, 170, 140, cla)
+                        time.sleep(0.3)
+
+                    if re_ing == True:
+                        # 퀘스트 진행중
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\request_ing.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(235, 115, 290, 450, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("request_ing", imgs_.x, imgs_.y)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.3)
+
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\quest_ing_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(800, 520, 940, 570, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("퀘스트 진행중")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+
+                                for c in range(10):
+                                    result_move = confirm_all(cla)
+                                    if result_move == True:
+                                        break
+                                    time.sleep(0.2)
+
+                            for i in range(50):
+                                result_tuto = tuto_ing(cla)
+                                if result_tuto == True:
+                                    break
+                                time.sleep(1)
+
+                        else:
+                            # 의뢰 대기중
+                            click_pos_2(125, 105, cla)
+                            time.sleep(0.5)
+                            for p in range(10):
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    # 235, 115, 290, 450
+                                    for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
+                                                                          confidence=0.9):
+                                        print(ix, ix.left, ix.top)
+                                        click_pos_reg(ix.left, ix.top, cla)
+
+                                        time.sleep(0.3)
+
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(870, 550, cla)
+                                        else:
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_2(870, 550, cla)
+                                            else:
+                                                pass
+                                        time.sleep(0.7)
+
+
+                                    break
+                                else:
+                                    click_pos_2(205, 105, cla)
+                                time.sleep(1)
         else:
 
             tuto_ing(cla)
@@ -166,6 +219,7 @@ def tuto_ing(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from potion_rom import out_potion_check, potion_buy
 
     try:
         print("tuto_ing")
@@ -270,6 +324,16 @@ def tuto_ing(cla):
             print("tuto_complete", imgs_.x, imgs_.y)
             click_pos_reg(imgs_.x, imgs_.y, cla)
             tuto_complete = True
+
+        # 물약 체크
+        result_potion = out_potion_check(cla)
+        if result_potion == True:
+            print("물약 있음")
+        else:
+            print("물약 없어서 사러 가야함")
+            potion_buy(cla)
+
+
 
         return tuto_complete
 

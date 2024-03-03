@@ -48,6 +48,8 @@ from character_select import character_screen_check
 from dungeon_rom import dungeon_start
 from jadong_rom import jadong_start
 from dead import dead_check
+from request_rom import request_start
+from auction_rom import auction_start
 
 from stop_event18 import _stop_please
 
@@ -936,7 +938,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 각종템받기, 거래소등록하기, 의뢰')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '거래소등록', '튜토육성', '자동사냥']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '의뢰하기', '거래소등록', '튜토육성', '자동사냥']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3225,6 +3227,10 @@ class game_Playing(QThread):
                                     dungeon_start(v_.now_cla, result_schedule_)
                                 elif result_schedule_ == "자동사냥":
                                     jadong_start(v_.now_cla)
+                                elif result_schedule_ == "의뢰하기":
+                                    request_start(v_.now_cla)
+                                elif result_schedule_ == "거래소등록":
+                                    auction_start(v_.now_cla)
 
                                 time.sleep(0.5)
                         else:

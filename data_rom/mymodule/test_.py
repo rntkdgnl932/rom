@@ -24,7 +24,7 @@ def go_test():
     from property_rom import my_property_upload
 
     from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
-    from potion_rom import potion_buy, juljun_potion_check
+    from potion_rom import potion_buy, juljun_potion_check, out_potion_check
     from collection_rom import collection_start
 
 
@@ -51,8 +51,7 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    auction_start(cla)
-
+    collection_start(cla)
 
     # my_property_upload(cla)
 

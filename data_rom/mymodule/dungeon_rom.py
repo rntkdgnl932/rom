@@ -129,7 +129,7 @@ def dungeon_join(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_clicked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(15, 100, 90, 130, cla, img, 0.7)
+                        imgs_ = imgs_set_(15, 100, 90, 130, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             print("dun_clicked", imgs_.x, imgs_.y)
                             break
@@ -312,7 +312,7 @@ def dungeon_join(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_clicked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(95, 100, 160, 130, cla, img, 0.7)
+                        imgs_ = imgs_set_(95, 100, 160, 130, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             print("dun_clicked", imgs_.x, imgs_.y)
                             break

@@ -15,6 +15,7 @@ def collection_start(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, menu_open_pure
     from clean_screen_rom import clean_screen
+    from boonhae_rom import boonhae_start
 
     try:
         print("collection_start")
@@ -90,6 +91,7 @@ def collection_start(cla):
                             break
                         time.sleep(0.1)
                 else:
+                    boonhae_start(cla)
                     v_.collection_today = False
                     collect_ = True
             else:
