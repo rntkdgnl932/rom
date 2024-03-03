@@ -22,6 +22,7 @@ def go_test():
     from clean_screen_rom import clean_screen
     from auction_rom import auction_start
     from property_rom import my_property_upload
+    from clean_screen_rom import clean_screen
 
     from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
     from potion_rom import potion_buy, juljun_potion_check, out_potion_check
@@ -29,7 +30,7 @@ def go_test():
 
 
     print("test")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -51,25 +52,32 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("dun_complete_title", imgs_.x, imgs_.y)
+
     # collection_start(cla)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("main_quest_clickedmain_quest_clickedmain_quest_clickedmain_quest_clicked 1", imgs_)
-
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # 235, 115, 290, 450
-    for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
-                                          confidence=0.9):
-        print(ix, ix.left, ix.top)
-        click_pos_reg(ix.left, ix.top, cla)
-
-        time.sleep(0.3)
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("main_quest_clickedmain_quest_clickedmain_quest_clickedmain_quest_clicked 1", imgs_)
+    #
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # # 235, 115, 290, 450
+    # for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
+    #                                       confidence=0.9):
+    #     print(ix, ix.left, ix.top)
+    #     click_pos_reg(ix.left, ix.top, cla)
+    #
+    #     time.sleep(0.3)
 
 
     # my_property_upload(cla)

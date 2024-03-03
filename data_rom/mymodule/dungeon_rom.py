@@ -230,28 +230,44 @@ def dungeon_join(cla, data):
                                     click_pos_2(420, 300, cla)
                                 time.sleep(0.5)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                complete_dun = True
+                                # x 닫기
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
+                                imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("move_title", imgs_.x, imgs_.y)
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                    print("x_close", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                    imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
-                                else:
-                                    if dun_3 == "1":
-                                        click_pos_2(470, 220, cla)
-                                    elif dun_3 == "2":
-                                        click_pos_2(470, 260, cla)
+                                        print("move_title", imgs_.x, imgs_.y)
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                     else:
-                                        click_pos_2(470, 300, cla)
-                                time.sleep(0.5)
+                                        if dun_3 == "1":
+                                            click_pos_2(470, 220, cla)
+                                        elif dun_3 == "2":
+                                            click_pos_2(470, 260, cla)
+                                        else:
+                                            click_pos_2(470, 300, cla)
+                                    time.sleep(0.5)
 
                     elif dun_2 == "사막동굴":
                         for i in range(10):
@@ -343,32 +359,47 @@ def dungeon_join(cla, data):
                                     click_pos_2(90, 300, cla)
                                 time.sleep(0.5)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                complete_dun = True
+                                # x 닫기
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
+                                imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("move_title", imgs_.x, imgs_.y)
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                    print("x_close", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                    imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
-                                else:
-                                    if dun_3 == "1":
-                                        click_pos_2(470, 220, cla)
-                                    elif dun_3 == "2":
-                                        click_pos_2(470, 260, cla)
-                                    elif dun_3 == "3":
-                                        click_pos_2(470, 300, cla)
-                                    elif dun_3 == "4":
-                                        click_pos_2(470, 340, cla)
+                                        print("move_title", imgs_.x, imgs_.y)
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                     else:
-                                        click_pos_2(470, 380, cla)
-                                time.sleep(0.5)
+                                        if dun_3 == "1":
+                                            click_pos_2(470, 220, cla)
+                                        elif dun_3 == "2":
+                                            click_pos_2(470, 260, cla)
+                                        elif dun_3 == "3":
+                                            click_pos_2(470, 300, cla)
+                                        elif dun_3 == "4":
+                                            click_pos_2(470, 340, cla)
+                                        else:
+                                            click_pos_2(470, 380, cla)
+                                    time.sleep(0.5)
 
                     elif dun_2 == "시간의미궁":
 
@@ -393,32 +424,48 @@ def dungeon_join(cla, data):
                                     click_pos_2(250, 300, cla)
                                 time.sleep(0.5)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                complete_dun = True
+                                # x 닫기
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
+                                imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("move_title", imgs_.x, imgs_.y)
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                    print("x_close", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                    imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
-                                else:
-                                    if dun_3 == "1":
-                                        click_pos_2(470, 220, cla)
-                                    elif dun_3 == "2":
-                                        click_pos_2(470, 260, cla)
-                                    elif dun_3 == "3":
-                                        click_pos_2(470, 300, cla)
-                                    elif dun_3 == "4":
-                                        click_pos_2(470, 340, cla)
+                                        print("move_title", imgs_.x, imgs_.y)
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                     else:
-                                        click_pos_2(470, 380, cla)
-                                time.sleep(0.5)
+                                        if dun_3 == "1":
+                                            click_pos_2(470, 220, cla)
+                                        elif dun_3 == "2":
+                                            click_pos_2(470, 260, cla)
+                                        elif dun_3 == "3":
+                                            click_pos_2(470, 300, cla)
+                                        elif dun_3 == "4":
+                                            click_pos_2(470, 340, cla)
+                                        else:
+                                            click_pos_2(470, 380, cla)
+                                    time.sleep(0.5)
 
                     elif dun_2 == "얼음신전":
 
@@ -443,32 +490,48 @@ def dungeon_join(cla, data):
                                     click_pos_2(420, 300, cla)
                                 time.sleep(0.5)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                complete_dun = True
+                                # x 닫기
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
+                                imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("move_title", imgs_.x, imgs_.y)
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                    print("x_close", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                    imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
-                                else:
-                                    if dun_3 == "1":
-                                        click_pos_2(470, 220, cla)
-                                    elif dun_3 == "2":
-                                        click_pos_2(470, 260, cla)
-                                    elif dun_3 == "3":
-                                        click_pos_2(470, 300, cla)
-                                    elif dun_3 == "4":
-                                        click_pos_2(470, 340, cla)
+                                        print("move_title", imgs_.x, imgs_.y)
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                     else:
-                                        click_pos_2(470, 380, cla)
-                                time.sleep(0.5)
+                                        if dun_3 == "1":
+                                            click_pos_2(470, 220, cla)
+                                        elif dun_3 == "2":
+                                            click_pos_2(470, 260, cla)
+                                        elif dun_3 == "3":
+                                            click_pos_2(470, 300, cla)
+                                        elif dun_3 == "4":
+                                            click_pos_2(470, 340, cla)
+                                        else:
+                                            click_pos_2(470, 380, cla)
+                                    time.sleep(0.5)
                     elif dun_2 == "혼돈의성채":
 
 
@@ -492,26 +555,42 @@ def dungeon_join(cla, data):
                                     click_pos_2(420, 300, cla)
                                 time.sleep(0.5)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                complete_dun = True
+                                # x 닫기
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
+                                imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("move_title", imgs_.x, imgs_.y)
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                    print("x_close", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                    imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
-                                else:
-                                    if dun_3 == "1":
-                                        click_pos_2(470, 220, cla)
+                                        print("move_title", imgs_.x, imgs_.y)
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                     else:
-                                        click_pos_2(470, 260, cla)
-                                time.sleep(0.5)
+                                        if dun_3 == "1":
+                                            click_pos_2(470, 220, cla)
+                                        else:
+                                            click_pos_2(470, 260, cla)
+                                    time.sleep(0.5)
 
                     elif dun_2 == "정령의성채":
 
@@ -536,26 +615,42 @@ def dungeon_join(cla, data):
                                     click_pos_2(420, 300, cla)
                                 time.sleep(0.5)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                complete_dun = True
+                                # x 닫기
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
+                                imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("move_title", imgs_.x, imgs_.y)
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                    print("x_close", imgs_.x, imgs_.y)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\move_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                    imgs_ = imgs_set_(430, 200, 510, 250, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    break
-                                else:
-                                    if dun_3 == "1":
-                                        click_pos_2(470, 220, cla)
+                                        print("move_title", imgs_.x, imgs_.y)
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 360, 600, 400, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                     else:
-                                        click_pos_2(470, 260, cla)
-                                time.sleep(0.5)
+                                        if dun_3 == "1":
+                                            click_pos_2(470, 220, cla)
+                                        else:
+                                            click_pos_2(470, 260, cla)
+                                    time.sleep(0.5)
                 # 던전 입장 여부 및 완료여부
                 if complete_dun == True:
                     myQuest_play_add(cla, data)
