@@ -29,7 +29,7 @@ def go_test():
 
 
     print("test")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -53,12 +53,23 @@ def go_test():
 
     # collection_start(cla)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\menu_collect.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(750, 80, 930, 150, "two", img, 0.7)
+    imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("menu_collect 1", imgs_)
+        print("main_quest_clickedmain_quest_clickedmain_quest_clickedmain_quest_clicked 1", imgs_)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # 235, 115, 290, 450
+    for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
+                                          confidence=0.9):
+        print(ix, ix.left, ix.top)
+        click_pos_reg(ix.left, ix.top, cla)
+
+        time.sleep(0.3)
 
 
     # my_property_upload(cla)
