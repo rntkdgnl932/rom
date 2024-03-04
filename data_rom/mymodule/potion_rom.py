@@ -15,6 +15,7 @@ def potion_buy(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, juljun_off, moving_check
     from clean_screen_rom import clean_screen
+    from get_item_rom import get_chulsuk
 
     try:
         print("potion_buy")
@@ -42,6 +43,8 @@ def potion_buy(cla):
                     buy_ = True
 
                     print("마을이다")
+                    get_chulsuk(cla)
+                    clean_screen(cla)
 
                     for i in range(10):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_jabhwa.PNG"
