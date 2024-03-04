@@ -87,6 +87,7 @@ def dungeon_join(cla, data):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import menu_open, out_check
     from schedule import myQuest_play_add
+    from clean_screen_rom import clean_screen
 
     try:
         print("dungeon_join", data)
@@ -171,6 +172,20 @@ def dungeon_join(cla, data):
                                     click_pos_2(470, 220, cla)
                                 else:
                                     click_pos_2(470, 260, cla)
+                                breaking = False
+                                for e in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        # x 닫기
+                                        breaking = True
+                                        clean_screen(cla)
+                                        break
+                                    time.sleep(0.1)
+                                if breaking == True:
+                                    break
                             time.sleep(0.5)
 
                     elif dun_2 == "카타콤":
@@ -206,6 +221,22 @@ def dungeon_join(cla, data):
                                     click_pos_2(470, 260, cla)
                                 else:
                                     click_pos_2(470, 300, cla)
+
+                                breaking = False
+                                for e in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        # x 닫기
+                                        breaking = True
+                                        clean_screen(cla)
+                                        break
+                                    time.sleep(0.1)
+                                if breaking == True:
+                                    break
+
                             time.sleep(0.5)
 
 
@@ -269,6 +300,21 @@ def dungeon_join(cla, data):
                                             click_pos_2(470, 260, cla)
                                         else:
                                             click_pos_2(470, 300, cla)
+
+                                        breaking = False
+                                        for e in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # x 닫기
+                                                breaking = True
+                                                clean_screen(cla)
+                                                break
+                                            time.sleep(0.1)
+                                        if breaking == True:
+                                            break
                                     time.sleep(0.5)
 
                     elif dun_2 == "사막동굴":
@@ -303,6 +349,21 @@ def dungeon_join(cla, data):
                                     click_pos_2(470, 220, cla)
                                 else:
                                     click_pos_2(470, 260, cla)
+
+                                breaking = False
+                                for e in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        # x 닫기
+                                        breaking = True
+                                        clean_screen(cla)
+                                        break
+                                    time.sleep(0.1)
+                                if breaking == True:
+                                    break
                             time.sleep(0.5)
 
                     elif dun_2 == "지하신전":
@@ -323,6 +384,21 @@ def dungeon_join(cla, data):
                                 break
                             else:
                                 click_pos_2(760, 300, cla)
+
+                            breaking = False
+                            for e in range(10):
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    # x 닫기
+                                    breaking = True
+                                    clean_screen(cla)
+                                    break
+                                time.sleep(0.1)
+                            if breaking == True:
+                                break
                             time.sleep(0.5)
 
                 elif dun_1 == "특수":
@@ -401,6 +477,21 @@ def dungeon_join(cla, data):
                                             click_pos_2(470, 340, cla)
                                         else:
                                             click_pos_2(470, 380, cla)
+
+                                        breaking = False
+                                        for e in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # x 닫기
+                                                breaking = True
+                                                clean_screen(cla)
+                                                break
+                                            time.sleep(0.1)
+                                        if breaking == True:
+                                            break
                                     time.sleep(0.5)
 
                     elif dun_2 == "시간의미궁":
@@ -467,6 +558,21 @@ def dungeon_join(cla, data):
                                             click_pos_2(470, 340, cla)
                                         else:
                                             click_pos_2(470, 380, cla)
+
+                                        breaking = False
+                                        for e in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # x 닫기
+                                                breaking = True
+                                                clean_screen(cla)
+                                                break
+                                            time.sleep(0.1)
+                                        if breaking == True:
+                                            break
                                     time.sleep(0.5)
 
                     elif dun_2 == "얼음신전":
@@ -533,6 +639,21 @@ def dungeon_join(cla, data):
                                             click_pos_2(470, 340, cla)
                                         else:
                                             click_pos_2(470, 380, cla)
+
+                                        breaking = False
+                                        for e in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # x 닫기
+                                                breaking = True
+                                                clean_screen(cla)
+                                                break
+                                            time.sleep(0.1)
+                                        if breaking == True:
+                                            break
                                     time.sleep(0.5)
                     elif dun_2 == "혼돈의성채":
 
@@ -592,6 +713,21 @@ def dungeon_join(cla, data):
                                             click_pos_2(470, 220, cla)
                                         else:
                                             click_pos_2(470, 260, cla)
+
+                                        breaking = False
+                                        for e in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # x 닫기
+                                                breaking = True
+                                                clean_screen(cla)
+                                                break
+                                            time.sleep(0.1)
+                                        if breaking == True:
+                                            break
                                     time.sleep(0.5)
 
                     elif dun_2 == "정령의성채":
@@ -652,6 +788,20 @@ def dungeon_join(cla, data):
                                             click_pos_2(470, 220, cla)
                                         else:
                                             click_pos_2(470, 260, cla)
+                                        breaking = False
+                                        for e in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\already_spot.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 150, 600, 200, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                # x 닫기
+                                                breaking = True
+                                                clean_screen(cla)
+                                                break
+                                            time.sleep(0.1)
+                                        if breaking == True:
+                                            break
                                     time.sleep(0.5)
                 # 던전 입장 여부 및 완료여부
                 if complete_dun == True:
