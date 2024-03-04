@@ -131,14 +131,14 @@ def request_start(cla):
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
+                            imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 over_lv = False
                             else:
                                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
+                                imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
                                     over_lv = False
                             if over_lv == False:
@@ -194,14 +194,14 @@ def request_start(cla):
                                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
+                                    imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_2(870, 550, cla)
                                     else:
                                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.93)
+                                        imgs_ = imgs_set_(300, 120, 600, 180, cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_2(870, 550, cla)
                                         else:
