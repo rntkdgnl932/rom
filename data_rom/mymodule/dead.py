@@ -42,7 +42,7 @@ def dead_check(cla):
                 character_id = result_schedule[0][1]
                 result_schedule_ = result_schedule[0][2]
 
-                if result_schedule_ == "튜토육성":
+                if result_schedule_ == "튜토육성" or result_schedule_ == "의뢰하기":
                     myQuest_play_add(cla, result_schedule_)
 
         return recovery
