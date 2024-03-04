@@ -52,12 +52,19 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_complete_title.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(600, 160, 650, 200, cla, img, 0.7)
+    imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.93)
     if imgs_ is not None and imgs_ != False:
-        print("dun_complete_title", imgs_.x, imgs_.y)
+        print("933333333333")
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    if imgs_ is not None and imgs_ != False:
+        print("90000000000000000")
 
     # collection_start(cla)
 
