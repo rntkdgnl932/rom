@@ -207,6 +207,14 @@ def out_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     why = "롬 밖으로 튕겼다."
                     logout_ = True
+                else:
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\inspection.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(250, 100, 650, 500, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        why = "롬 점검중."
+                        logout_ = True
 
             if logout_ == True:
                 print(why)
