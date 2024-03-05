@@ -923,7 +923,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_godae_migoong.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -937,7 +937,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_katacom.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -951,7 +951,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_dberg.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -965,7 +965,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_samac_cave.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -978,7 +978,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_under_temple.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -991,7 +991,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_hwanyuong.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -1004,7 +1004,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_time.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
@@ -1017,7 +1017,7 @@ def dungeon_check(cla, data):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_ice_temple.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.7)
+                        imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             where_ = True
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_hunting.PNG"
