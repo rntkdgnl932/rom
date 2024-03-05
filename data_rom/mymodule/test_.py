@@ -59,7 +59,7 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("out_big_zero 1", imgs_.x, imgs_.y)
 
-        
+
     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_small_zero.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
