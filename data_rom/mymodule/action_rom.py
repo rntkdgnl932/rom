@@ -163,8 +163,10 @@ def menu_open_pure(cla):
 def out_check(cla):
     import numpy as np
     import cv2
+    import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from dead import dead_check, dead_recover
+    from massenger import line_to_me
 
     try:
 
@@ -183,6 +185,29 @@ def out_check(cla):
         result_dead = dead_check(cla)
         if result_dead == True:
             dead_recover(cla)
+        else:
+
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\logout.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(250, 100, 650, 450, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                why = "롬 종료 되었따."
+                print(why)
+                line_to_me(v_.now_cla, why)
+
+                dir_path = "C:\\my_games\\load\\rom"
+                file_path = dir_path + "\\start.txt"
+                file_path2 = dir_path + "\\cla.txt"
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    data = 'no'
+                    file.write(str(data))
+                    time.sleep(0.2)
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
+                    data = v_.now_cla
+                    file.write(str(data))
+                    time.sleep(0.2)
+                os.execl(sys.executable, sys.executable, *sys.argv)
 
         return out_
 
