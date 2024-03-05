@@ -187,12 +187,28 @@ def out_check(cla):
             dead_recover(cla)
         else:
 
+            logout_ = False
+            why = "none"
+
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\logout.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(250, 100, 650, 450, cla, img, 0.7)
+            imgs_ = imgs_set_(250, 100, 650, 450, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 why = "롬 종료 되었따."
+                logout_ = True
+
+
+            else:
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    why = "롬 밖으로 튕겼다."
+                    logout_ = True
+
+            if logout_ == True:
                 print(why)
                 line_to_me(v_.now_cla, why)
 
