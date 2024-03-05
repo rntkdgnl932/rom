@@ -52,33 +52,62 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_big_zero.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    imgs_ = imgs_set_(680, 540, 725, 570, "two", img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("933333333333")
+        print("out_big_zero 1", imgs_.x, imgs_.y)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
+        
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_small_zero.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    imgs_ = imgs_set_(680, 540, 725, 570, "two", img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("90000000000000000")
+        print("out_small_zero 2", imgs_.x, imgs_.y)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49_3.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_potion_zero.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    imgs_ = imgs_set_(670, 30, 740, 100, "two", img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("90000000000084888888888447777666600000")
+        print("물약 없다")
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.7)
+    imgs_ = imgs_set_(720, 50, 780, 85, "two", img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("server_select_btn")
+        print("가방 꽉 찼다")
+
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("933333333333")
+    #
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("90000000000000000")
+    #
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\40_49_3.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(300, 120, 600, 180, "two", img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("90000000000084888888888447777666600000")
+    #
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("server_select_btn")
 
     # collection_start(cla)
 
