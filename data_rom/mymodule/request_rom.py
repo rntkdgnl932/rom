@@ -17,6 +17,7 @@ def request_start(cla):
     from action_rom import menu_open, confirm_all
     from get_item_rom import get_upjuk
     from schedule import myQuest_play_add
+    from clean_screen_rom import clean_screen
 
     try:
         print("request_start")
@@ -194,7 +195,25 @@ def request_start(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(170, 105, 250, 125, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
+                                ready_num = 0
                                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(235, 115, 280, 450, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    ready_num = 1
+                                else:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(235, 115, 280, 450, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        ready_num = 2
+
+                                if ready_num == 1:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
+                                elif ready_num == 2:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\re_ready.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 # 235, 115, 290, 450
@@ -235,7 +254,10 @@ def request_start(cla):
                                                 else:
                                                     pass
                                     time.sleep(0.7)
-
+                                if ready_num == 0:
+                                    myQuest_play_add(cla, "의뢰하기")
+                                    time.sleep(0.2)
+                                    clean_screen(cla)
 
                                 break
                             else:
