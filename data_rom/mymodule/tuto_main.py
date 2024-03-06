@@ -211,7 +211,12 @@ def tuto_ing(cla):
                             click_pos_2(200, 375, cla)
                             break
                         else:
-                            click_pos_2(210, 225, cla)
+                            for lv in range(2):
+                                click_pos_2(210, 225, cla)
+                                time.sleep(0.4)
+                            click_pos_2(210, 339, cla)
+                            time.sleep(0.2)
+
                     time.sleep(0.2)
                 else:
                     time.sleep(0.3)
