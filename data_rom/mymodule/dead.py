@@ -44,6 +44,8 @@ def dead_check(cla):
 
                 if result_schedule_ == "튜토육성" or result_schedule_ == "의뢰하기":
                     myQuest_play_add(cla, result_schedule_)
+                    if result_schedule_ == "튜토육성":
+                        v_.collection_today = True
 
         return recovery
     except Exception as e:

@@ -271,6 +271,7 @@ def tuto_ing(cla):
         imgs_ = imgs_set_(830, 480, 960, 580, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             print("skip_5", imgs_.x, imgs_.y)
+            time.sleep(1)
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 퀘스트 완료

@@ -3222,6 +3222,7 @@ class game_Playing(QThread):
                                 # 오토 시작
 
                                 if result_schedule_ == "튜토육성":
+                                    v_.collection_today = False
                                     tuto_start(v_.now_cla)
                                 elif "던전" in result_schedule_:
                                     dungeon_start(v_.now_cla, result_schedule_)
