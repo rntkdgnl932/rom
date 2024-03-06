@@ -199,7 +199,7 @@ def request_start(cla):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 # 235, 115, 290, 450
                                 for ix in pyautogui.locateAllOnScreen(img, region=(235 + plus, 115, 55, 335),
-                                                                      confidence=0.9):
+                                                                      confidence=0.85):
                                     print(ix, ix.left, ix.top)
                                     click_pos_reg(ix.left, ix.top, cla)
 
