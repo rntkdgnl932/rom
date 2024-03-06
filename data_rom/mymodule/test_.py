@@ -52,26 +52,12 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_junglyung_temple.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\move_zero.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
+    imgs_ = imgs_set_(795, 525, 870, 555, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("where_junglyung_temple 1", imgs_.x, imgs_.y)
-
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_hondon_castle.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("where_hondon_castle 1", imgs_.x, imgs_.y)
-
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\where_ice_temple.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(60, 498, 150, 530, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("where_ice_temple 2", imgs_.x, imgs_.y)
+        print("move_zero", imgs_.x, imgs_.y)
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

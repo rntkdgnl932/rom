@@ -78,8 +78,19 @@ def jadong_spot(cla):
                         time.sleep(0.5)
                         click_pos_2(130, 170, cla)
                         time.sleep(0.5)
-                        click_pos_2(810, 540, cla)
-                        time.sleep(0.5)
+
+                        ###
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\move_zero.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(795, 525, 870, 555, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("move_zero", imgs_.x, imgs_.y)
+                            clean_screen(cla)
+                            break
+                        else:
+                            click_pos_2(810, 540, cla)
+                            time.sleep(0.5)
                 for i in range(20):
                     result_out = out_check(cla)
                     if result_out == True:
