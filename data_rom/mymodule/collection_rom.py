@@ -97,8 +97,44 @@ def collection_start(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
                         else:
-                            print("e n d")
-                            break
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\c_point_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 120, 350, 540, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("c_point_2 1", imgs_)
+                                click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\col_confirm.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(550, 420, 640, 460, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\c_point_2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(50, 120, 350, 540, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("c_point_2 2", imgs_)
+                                            click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+                                    time.sleep(0.2)
+
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\col_confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(490, 350, 600, 380, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(444, 333, cla)
+                                    time.sleep(0.2)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.2)
+
+                            else:
+                                print("e n d")
+                                break
                         time.sleep(0.1)
                 else:
                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\collection\\col_des_point.PNG"
