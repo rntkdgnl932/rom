@@ -319,20 +319,20 @@ def get_upjuk(cla):
                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\chul_point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(110, 110, 145, 300, cla, img, 0.7)
+                    imgs_ = imgs_set_(110, 110, 145, 300, cla, img, 0.65)
                     if imgs_ is not None and imgs_ != False:
                         print("chul_point 4", imgs_.x, imgs_.y)
                         click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
 
                         time.sleep(0.5)
 
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\upjuk_bosang.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(850, 110, 960, 560, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("upjuk_bosang", imgs_.x, imgs_.y)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\upjuk_bosang.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 110, 960, 560, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("upjuk_bosang", imgs_.x, imgs_.y)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 else:
                     menu_opened = True
