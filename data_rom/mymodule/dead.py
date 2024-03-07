@@ -57,9 +57,10 @@ def dead_recover(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check
+    from action_rom import out_check, confirm_all
     from clean_screen_rom import clean_screen
     from massenger import line_to_me
+
 
     try:
         print("dead_recover")
@@ -126,6 +127,11 @@ def dead_recover(cla):
                                         print("free_recover", imgs_.x, imgs_.y)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         break
+                                    else:
+                                        result_confirm = confirm_all(all)
+                                        if result_confirm == True:
+                                            break
+
                                 time.sleep(0.2)
                         else:
                             # 경험치 골드 체크확인하기
