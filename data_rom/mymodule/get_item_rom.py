@@ -303,7 +303,7 @@ def get_upjuk(cla):
                     time.sleep(0.5)
 
                     # 업적 클릭
-                    for i in range(10):
+                    for i in range(5):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\tuto\\main_quest_clicked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
