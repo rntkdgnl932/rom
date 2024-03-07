@@ -50,7 +50,7 @@ def potion_buy(cla):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_jabhwa.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(850, 30, 950, 100, cla, img, 0.7)
+                        imgs_ = imgs_set_(850, 30, 950, 100, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             # 물약사기
                             potion_buy_start(cla)
@@ -61,6 +61,9 @@ def potion_buy(cla):
                             result_moving = moving_check(cla)
                             if result_moving == False:
                                 click_pos_2(65, 210, cla)
+                            else:
+                                click_pos_2(75, 210, cla)
+                                time.sleep(0.5)
                         time.sleep(1)
 
                 else:

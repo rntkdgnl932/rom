@@ -52,7 +52,7 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    potion_buy_start(cla)
+    potion_buy(cla)
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
