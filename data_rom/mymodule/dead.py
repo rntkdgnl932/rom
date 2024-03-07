@@ -37,15 +37,25 @@ def dead_check(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 recovery = True
 
-                result_schedule = myQuest_play_check(v_.now_cla, "check")
-                print("result_schedule", result_schedule)
-                character_id = result_schedule[0][1]
-                result_schedule_ = result_schedule[0][2]
+        else:
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\experience_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                recovery = True
 
-                if result_schedule_ == "튜토육성" or result_schedule_ == "의뢰하기":
-                    myQuest_play_add(cla, result_schedule_)
-                    if result_schedule_ == "튜토육성":
-                        v_.collection_today = True
+        if recovery == True:
+            result_schedule = myQuest_play_check(v_.now_cla, "check")
+            print("result_schedule", result_schedule)
+            character_id = result_schedule[0][1]
+            result_schedule_ = result_schedule[0][2]
+
+            if result_schedule_ == "튜토육성" or result_schedule_ == "의뢰하기":
+                myQuest_play_add(cla, result_schedule_)
+                if result_schedule_ == "튜토육성":
+                    v_.collection_today = True
+
 
         return recovery
     except Exception as e:
