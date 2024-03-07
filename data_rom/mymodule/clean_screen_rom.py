@@ -13,7 +13,7 @@ def clean_screen(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check
+    from action_rom import out_check, confirm_all
 
     try:
         print("clean_screen")
@@ -31,6 +31,9 @@ def clean_screen(cla):
                 out_ = True
                 print("out_ok")
             else:
+                # 모두 예 처리
+                confirm_all(cla)
+                time.sleep(0.5)
 
                 # dead 복구 닫기
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\dead_close.PNG"
