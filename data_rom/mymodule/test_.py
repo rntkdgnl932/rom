@@ -52,7 +52,58 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    potion_buy(cla)
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(110, 130, 200, 160, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+
+        print("full_potion", imgs_.x, imgs_.y)
+
+    # result_num = text_check_get(707, 552, 712, 560, cla)
+    # print("result_num", result_num)
+
+    # 707, 552, 712, 560
+    for i in range(10):
+        print("현재 숫자", i)
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(700, 530, 713, 560, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("number is... ", i)
+            break
+
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\no_number.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(700, 530, 713, 560, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("no_number.......")
+            break
+
+
+    # result_num = text_check_get(693, 66, 699, 75, cla)
+    # print("result_num", result_num)
+
+    # # 693, 66, 699, 75
+    # for i in range(10):
+    #     print("현재 숫자", i)
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\number\\" + str(i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("number is... ", i)
+    #         break
+    #
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\number\\no_number.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("no_number.......")
+    #         break
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
