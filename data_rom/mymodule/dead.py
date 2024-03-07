@@ -66,6 +66,7 @@ def dead_check(cla):
 def dead_recover(cla):
     import numpy as np
     import cv2
+    import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, confirm_all
     from clean_screen_rom import clean_screen
@@ -264,8 +265,22 @@ def dead_recover(cla):
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
                                         # 장비 복구 메신져 보내기
-                                        why = "장비 복구 했다. 반드시 확인하라"
+                                        why = "장비 복구 했다. 반드시 확인 후 다시 켜라"
                                         line_to_me(cla, why)
+
+                                        dir_path = "C:\\my_games\\load\\rom"
+                                        file_path = dir_path + "\\start.txt"
+                                        file_path2 = dir_path + "\\cla.txt"
+                                        with open(file_path, "w", encoding='utf-8-sig') as file:
+                                            data = 'no'
+                                            file.write(str(data))
+                                            time.sleep(0.2)
+                                        with open(file_path2, "w", encoding='utf-8-sig') as file:
+                                            data = v_.now_cla
+                                            file.write(str(data))
+                                            time.sleep(0.2)
+                                        os.execl(sys.executable, sys.executable, *sys.argv)
+
                                         break
                                 time.sleep(0.2)
 
