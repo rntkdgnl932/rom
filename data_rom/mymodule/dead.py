@@ -138,7 +138,7 @@ def dead_recover(cla):
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         break
                                     else:
-                                        result_confirm = confirm_all(all)
+                                        result_confirm = confirm_all(cla)
                                         if result_confirm == True:
                                             break
 
