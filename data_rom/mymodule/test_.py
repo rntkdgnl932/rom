@@ -25,7 +25,7 @@ def go_test():
     from clean_screen_rom import clean_screen
 
     from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
-    from potion_rom import potion_buy, juljun_potion_check, out_potion_check
+    from potion_rom import potion_buy, juljun_potion_check, out_potion_check, potion_buy_start
     from collection_rom import collection_start
 
 
@@ -52,12 +52,14 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\move_zero.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(795, 525, 870, 555, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("move_zero", imgs_.x, imgs_.y)
+    potion_buy_start(cla)
+
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(110, 130, 200, 160, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("full_potion", imgs_.x, imgs_.y)
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\request\\30_39.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
