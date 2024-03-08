@@ -30,7 +30,7 @@ def go_test():
 
 
     print("test")
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -63,24 +63,42 @@ def go_test():
     # result_num = text_check_get(707, 552, 712, 560, cla)
     # print("result_num", result_num)
 
-    # 707, 552, 712, 560
     for i in range(10):
-        print("현재 숫자", i)
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_number\\" + str(i) + ".PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 530, 713, 560, cla, img, 0.75)
+        imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
-            print("number is... ", i)
+            print("물약 100 자릿수 number is... ", i)
             break
 
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\no_number.PNG"
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_number\\no_number.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 530, 713, 560, cla, img, 0.75)
+        imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
-            print("no_number.......")
+            print("물약 100개 이하.......")
+            is_potion = False
             break
+
+    # # 707, 552, 712, 560
+    # for i in range(10):
+    #     print("현재 숫자", i)
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(700, 530, 713, 560, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("number is... ", i)
+    #         break
+    #
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\no_number.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(700, 530, 713, 560, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("no_number.......")
+    #         break
 
 
     # result_num = text_check_get(693, 66, 699, 75, cla)

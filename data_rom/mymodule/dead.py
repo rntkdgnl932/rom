@@ -186,8 +186,8 @@ def dead_recover(cla):
                                             break
                                 time.sleep(0.2)
 
-                            why = "롬 무료 복구 없다. 정비하라"
-                            line_to_me(cla, why)
+                            # why = "롬 무료 복구 없다. 정비하라"
+                            # line_to_me(cla, why)
                             clean_screen(cla)
                     else:
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\not_recover_item.PNG"
