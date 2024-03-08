@@ -272,7 +272,7 @@ def crash_check(cla, data):
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\logout.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 180, 520, 260, cla, img, 0.8)
+                            imgs_ = imgs_set_(400, 180, 520, 330, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 why = "롬 카카오 로그인 화면"
                                 break
@@ -284,6 +284,15 @@ def crash_check(cla, data):
                                 if imgs_ is not None and imgs_ != False:
                                     why = "롬 팅겨서 바깥 화면임"
                                     click_pos_2(670, 240, cla)
+
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\logout.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 180, 520, 330, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    # click_pos_2(475, 360, cla)
+                                    why = "롬 인증 실패 화면"
+                                    break
                         time.sleep(1)
 
                 if logout_ == True:
