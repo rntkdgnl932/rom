@@ -744,7 +744,7 @@ def dungeon_check(cla, data):
     import cv2
     import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check, menu_open, juljun_on
+    from action_rom import out_check, menu_open, juljun_on, crash_check
     from massenger import line_to_me
 
     try:
@@ -793,22 +793,8 @@ def dungeon_check(cla, data):
                 imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("튕김")
-                    why = "롬" + str(data) + " 던전 사냥 중 튕겼다."
-                    print(why)
-                    line_to_me(v_.now_cla, why)
-
-                    dir_path = "C:\\my_games\\load\\rom"
-                    file_path = dir_path + "\\start.txt"
-                    file_path2 = dir_path + "\\cla.txt"
-                    with open(file_path, "w", encoding='utf-8-sig') as file:
-                        data = 'no'
-                        file.write(str(data))
-                        time.sleep(0.2)
-                    with open(file_path2, "w", encoding='utf-8-sig') as file:
-                        data = v_.now_cla
-                        file.write(str(data))
-                        time.sleep(0.2)
-                    os.execl(sys.executable, sys.executable, *sys.argv)
+                    why = "롬" + str(data) + " 던전 사냥 중 튕겼다.."
+                    crash_check(cla, why)
                 else:
 
                     if dun_2 == "고대미궁":

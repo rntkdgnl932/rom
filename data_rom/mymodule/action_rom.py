@@ -163,10 +163,8 @@ def menu_open_pure(cla):
 def out_check(cla):
     import numpy as np
     import cv2
-    import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from dead import dead_check, dead_recover
-    from massenger import line_to_me
+
 
     try:
 
@@ -181,6 +179,28 @@ def out_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("out_keyboard", imgs_.x, imgs_.y)
             out_ = True
+
+        crash_check(cla, "check")
+
+
+        return out_
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def crash_check(cla, data):
+    import numpy as np
+    import cv2
+    import os
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from dead import dead_check, dead_recover
+    from massenger import line_to_me
+
+    try:
+        print("crash_check")
+
         # 수시로 체크
         result_dead = dead_check(cla)
         if result_dead == True:
@@ -225,9 +245,17 @@ def out_check(cla):
                         if imgs_ is not None and imgs_ != False:
                             why = "롬 카카오 로그인 화면"
                             logout_ = True
+                        else:
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_logout.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                why = str(data)
+                                logout_ = True
+                                crash_game = True
 
             if logout_ == True:
-
 
                 if crash_game == True:
                     for i in range(10):
@@ -274,9 +302,6 @@ def out_check(cla):
                         file.write(str(data))
                         time.sleep(0.2)
                     os.execl(sys.executable, sys.executable, *sys.argv)
-
-        return out_
-
 
     except Exception as e:
         print(e)
