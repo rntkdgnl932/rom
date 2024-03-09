@@ -254,7 +254,7 @@ def crash_check(cla, data):
                                 why = str(data)
                                 logout_ = True
                                 crash_game = True
-                                for i in range(10):
+                                for i in range(180):
                                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
