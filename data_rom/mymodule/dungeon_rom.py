@@ -31,12 +31,12 @@ def dungeon_start(cla, data):
 
         elif result_check[0] == False:
             # 사냥터로 이동
-            dun_ = False
+            dun_in = False
             dun_count = 0
-            while dun_ is False:
+            while dun_in is False:
                 dun_count += 1
                 if dun_count > 7:
-                    dun_ = True
+                    dun_in = True
 
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_dungeon.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -44,7 +44,7 @@ def dungeon_start(cla, data):
                 imgs_ = imgs_set_(800, 30, 950, 80, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
 
-                    dun_ = True
+                    dun_in = True
 
                     print("title_dungeon", imgs_.x, imgs_.y)
                     # 던전 입장
@@ -111,12 +111,12 @@ def dungeon_join(cla, data):
         dun_3 = dun_[3] # 층수
         print("던전정보", dun_1, dun_2, dun_3)
 
-        dun_ = False
+        dun_in = False
         dun_count = 0
-        while dun_ is False:
+        while dun_in is False:
             dun_count += 1
             if dun_count > 7:
-                dun_ = True
+                dun_in = True
 
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_dungeon.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -125,7 +125,7 @@ def dungeon_join(cla, data):
             if imgs_ is not None and imgs_ != False:
                 print("title_dungeon", imgs_.x, imgs_.y)
 
-                dun_ = True
+                dun_in = True
 
                 if dun_1 == "일반":
                     for i in range(10):
@@ -770,12 +770,12 @@ def dungeon_check(cla, data):
         dun_3 = dun_[3]  # 층수
 
 
-        dun_ = False
+        dun_in = False
         dun_count = 0
-        while dun_ is False:
+        while dun_in is False:
             dun_count += 1
             if dun_count > 7:
-                dun_ = True
+                dun_in = True
 
             # 절전 던전 모드 확인하기
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
@@ -784,7 +784,7 @@ def dungeon_check(cla, data):
             imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
 
-                dun_ = True
+                dun_in = True
                 print("절전모드")
 
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_logout.PNG"

@@ -261,6 +261,13 @@ def crash_check(cla, data):
                                     imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         break
+                                    else:
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\character_select\\game_start.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            logout_ = False
                                     time.sleep(5)
 
             if logout_ == True:
