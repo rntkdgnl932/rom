@@ -13,7 +13,7 @@ def jadong_start(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check
+    from action_rom import out_check, huntig_check
     from potion_rom import juljun_potion_check, potion_buy
 
     try:
@@ -23,11 +23,14 @@ def jadong_start(cla):
         result_check = jadong_check(cla)
 
         if result_check == True:
-            print("정상 자동 사냥 중")
-            # 물약 파악
-            result_potion = juljun_potion_check(cla)
-            if result_potion == False:
-                potion_buy(cla)
+
+            huntig_check(cla, "자동사냥")
+
+            # print("정상 자동 사냥 중")
+            # # 물약 파악
+            # result_potion = juljun_potion_check(cla)
+            # if result_potion == False:
+            #     potion_buy(cla)
 
         else:
             # 사냥터로 이동

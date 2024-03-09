@@ -410,6 +410,8 @@ def juljun_potion_check(cla):
                     print("가방 꽉 찼다")
                     v_.collection_today = True
                     collection_start(cla)
+                    time.sleep(0.5)
+                    juljun_on(cla)
 
 
             else:

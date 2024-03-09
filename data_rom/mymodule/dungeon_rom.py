@@ -13,7 +13,7 @@ def dungeon_start(cla, data):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import out_check, menu_open, juljun_off, juljun_on
+    from action_rom import out_check, menu_open, juljun_off, juljun_on, huntig_check
     from potion_rom import juljun_potion_check, potion_buy
 
     try:
@@ -23,12 +23,20 @@ def dungeon_start(cla, data):
         result_check = dungeon_check(cla, data)
 
         if result_check[0] == True and result_check[1] == True:
-            print("정상 사냥 중", data)
-            # 물약 파악
-            result_potion = juljun_potion_check(cla)
-            if result_potion == False:
-                potion_buy(cla)
 
+            huntig_check(cla, data)
+
+            # print("정상 사냥 중", data)
+            # # 물약 파악
+            # result_potion = juljun_potion_check(cla)
+            # if result_potion == False:
+            #     potion_buy(cla)
+        if result_check[0] == True and result_check[1] == False:
+            juljun_off(cla)
+            time.sleep(0.2)
+            click_pos_2(895, 455, cla)
+            time.sleep(0.2)
+            juljun_on(cla)
         elif result_check[0] == False:
             # 사냥터로 이동
             dun_in = False
@@ -80,6 +88,8 @@ def dungeon_start(cla, data):
     except Exception as e:
         print(e)
         return 0
+
+
 
 def dungeon_join(cla, data):
     import numpy as np

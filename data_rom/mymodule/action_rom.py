@@ -209,10 +209,13 @@ def crash_check(cla, data):
     try:
         print("crash_check")
 
+        dead_crash_on = False
+
         # 수시로 체크
         result_dead = dead_check(cla)
         if result_dead == True:
             dead_recover(cla)
+            dead_crash_on = True
         else:
 
             crash_game = False
@@ -280,6 +283,8 @@ def crash_check(cla, data):
 
             if logout_ == True:
 
+                dead_crash_on = True
+
                 if crash_game == True:
                     for i in range(10):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\character_select\\game_start.PNG"
@@ -322,6 +327,8 @@ def crash_check(cla, data):
                     print(why)
                     line_to_me(v_.now_cla, why)
 
+
+
                     dir_path = "C:\\my_games\\load\\rom"
                     file_path = dir_path + "\\start.txt"
                     file_path2 = dir_path + "\\cla.txt"
@@ -334,6 +341,9 @@ def crash_check(cla, data):
                         file.write(str(data))
                         time.sleep(0.2)
                     os.execl(sys.executable, sys.executable, *sys.argv)
+
+        return dead_crash_on
+
 
     except Exception as e:
         print(e)
@@ -433,6 +443,7 @@ def juljun_off(cla):
         if imgs_ is not None and imgs_ != False:
             drag_pos(470, 250, 900, 250, cla)
 
+
             for i in range(10):
                 result_out = out_check(cla)
                 if result_out == True:
@@ -525,3 +536,110 @@ def moving_check(cla):
     except Exception as e:
         print(e)
         return 0
+
+
+def huntig_check(cla, data):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action_rom import out_check, menu_open, juljun_off, juljun_on
+    from potion_rom import juljun_potion_check, potion_buy
+    from dungeon_rom import dungeon_check
+    from jadong_rom import jadong_check
+
+
+    try:
+
+
+        if "던전" in data:
+
+            # 절전 던전 모드 확인하기
+
+            huntig_continue = True
+            while huntig_continue is True:
+
+                print("hunting checking", data)
+                result_out = out_check(cla)
+                if result_out == True:
+                    potion_buy(cla)
+                    huntig_continue = False
+                else:
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+
+
+                        # 절전 던전 모드 확인하기
+                        result_check = dungeon_check(cla, data)
+
+                        if result_check[0] == True and result_check[1] == True:
+                            print("정상 던전 사냥 중 : ", data)
+                            # 물약 파악
+                            result_potion = juljun_potion_check(cla)
+                            if result_potion == False:
+                                potion_buy(cla)
+                                huntig_continue = False
+                        elif result_check[0] == True and result_check[1] == False:
+                            juljun_off(cla)
+                            time.sleep(0.2)
+                            click_pos_2(895, 455, cla)
+                            time.sleep(0.2)
+                            juljun_on(cla)
+                        else:
+                            huntig_continue = False
+
+                # dead
+                why = "롬 : " + str(data) + " 던전 사냥 중 튕겼다.."
+                result_crash = crash_check(cla, why)
+                if result_crash == True:
+                    huntig_continue = False
+
+
+        elif "자동사냥" in data:
+
+            # 절전 자동 모드 확인하기
+
+            huntig_continue = True
+            while huntig_continue is True:
+
+                print("hunting checking", data)
+                result_out = out_check(cla)
+                if result_out == True:
+                    potion_buy(cla)
+                    huntig_continue = False
+                else:
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        result_check = jadong_check(cla)
+
+                        if result_check == True:
+                            print("정상 자동 사냥 중......")
+                            # 물약 파악
+                            result_potion = juljun_potion_check(cla)
+                            if result_potion == False:
+                                potion_buy(cla)
+                                huntig_continue = False
+                        else:
+                            juljun_off(cla)
+                            time.sleep(0.2)
+                            click_pos_2(895, 455, cla)
+                            time.sleep(0.2)
+                            juljun_on(cla)
+                time.sleep(0.2)
+                # dead
+                why = "롬 자동 사냥 중 튕겼다.."
+                result_crash = crash_check(cla, why)
+                if result_crash == True:
+                    huntig_continue = False
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+
