@@ -275,7 +275,7 @@ def crash_check(cla, data):
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
                                         if imgs_ is not None and imgs_ != False:
-                                            logout_ = False
+                                            break
                                     time.sleep(5)
 
             if logout_ == True:
