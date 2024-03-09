@@ -14,6 +14,9 @@ not_boohwal = False
 # 콜렉션 관련
 collection_today = True
 
+# 현재 캐릭 번호
+character_number = 0
+
 
 # 게임 및 폴더 관련
 this_game = "롬"

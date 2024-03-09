@@ -3202,6 +3202,7 @@ class game_Playing(QThread):
                                 result_schedule = myQuest_play_check(v_.now_cla, "check")
                                 print("result_schedule", result_schedule)
                                 character_id = result_schedule[0][1]
+                                v_.character_number = character_id
                                 result_schedule_ = result_schedule[0][2]
 
                                 # 게임 시작 화면인지 분석부터 하기

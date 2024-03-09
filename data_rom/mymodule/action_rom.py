@@ -164,6 +164,7 @@ def out_check(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from character_select import character_screen_check
 
 
     try:
@@ -179,6 +180,13 @@ def out_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("out_keyboard", imgs_.x, imgs_.y)
             out_ = True
+        else:
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\character_select\\game_start.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                character_screen_check(cla, v_.character_number)
 
         crash_check(cla, "check")
 
