@@ -74,10 +74,32 @@ def jadong_spot(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         break
                     else:
+
+
+
                         click_pos_2(25, 205, cla)
                         time.sleep(0.5)
                         click_pos_2(130, 170, cla)
                         time.sleep(0.5)
+
+
+                        # detil om
+                        for d in range(10):
+
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\detail_on.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(910, 100, 960, 150, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\detail_off.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(910, 100, 960, 150, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                         ###
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\move_zero.PNG"

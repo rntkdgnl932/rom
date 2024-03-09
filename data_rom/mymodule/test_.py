@@ -30,7 +30,7 @@ def go_test():
 
 
     print("test")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -52,34 +52,52 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(110, 130, 200, 160, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-
-        print("full_potion", imgs_.x, imgs_.y)
-
-    # result_num = text_check_get(707, 552, 712, 560, cla)
-    # print("result_num", result_num)
-
     for i in range(10):
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_number\\" + str(i) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
-        if imgs_ is not None and imgs_ != False:
-            print("물약 100 자릿수 number is... ", i)
-            break
 
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_number\\no_number.PNG"
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\detail_on.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
+        imgs_ = imgs_set_(910, 100, 960, 150, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            print("물약 100개 이하.......")
-            is_potion = False
             break
+        else:
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\detail_off.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(910, 100, 960, 150, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+        time.sleep(0.5)
+
+
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(110, 130, 200, 160, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #
+    #     print("full_potion", imgs_.x, imgs_.y)
+    #
+    # # result_num = text_check_get(707, 552, 712, 560, cla)
+    # # print("result_num", result_num)
+    #
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_number\\" + str(i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("물약 100 자릿수 number is... ", i)
+    #         break
+    #
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\juljun_number\\no_number.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(680, 45, 700, 75, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("물약 100개 이하.......")
+    #         is_potion = False
+    #         break
 
     # # 707, 552, 712, 560
     # for i in range(10):
