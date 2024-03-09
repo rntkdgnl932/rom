@@ -793,7 +793,7 @@ def dungeon_check(cla, data):
                 imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("튕김")
-                    why = "롬" + str(data) + " 던전 사냥 중 튕겼다.."
+                    why = "롬 : " + str(data) + " 던전 사냥 중 튕겼다.."
                     crash_check(cla, why)
                 else:
 
