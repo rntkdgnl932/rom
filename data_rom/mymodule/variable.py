@@ -17,6 +17,10 @@ collection_today = True
 # 현재 캐릭 번호
 character_number = 0
 
+# 설정된 내 아이디
+myid = "none"
+mypw = "none"
+
 
 # 게임 및 폴더 관련
 this_game = "롬"

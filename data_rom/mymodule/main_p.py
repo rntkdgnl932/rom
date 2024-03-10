@@ -345,6 +345,8 @@ class SecondTab(QWidget):
                 thismyid_one = lines_one[0]
                 thismypw_one = lines_one[1]
                 thismyps_one = lines_one[2]
+                v_.myid = thismyid_one
+                v_.mypw = thismypw_one
         else:
             print('one 파일 없당')
             thismyid_one = 'none'
