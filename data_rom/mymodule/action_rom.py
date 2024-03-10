@@ -559,42 +559,65 @@ def huntig_check(cla, data):
             while huntig_continue is True:
 
                 print("hunting checking", data)
-                result_out = out_check(cla)
-                if result_out == True:
-                    potion_buy(cla)
+
+                dir_path = "C:\\my_games\\" + str(v_.game_folder)
+                file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
+
+                isRefresh = False
+                while isRefresh is False:
+                    if os.path.isfile(file_path13) == True:
+                        with open(file_path13, "r", encoding='utf-8-sig') as file:
+                            isRefresh = True
+                            refresh_time = file.read()
+                            print("refresh_time", refresh_time)
+                    else:
+                        with open(file_path13, "w", encoding='utf-8-sig') as file:
+                            file.write(str(6))
+
+                if nowTime >= int(refresh_time):
+                    nowDay = str(nowDay)
+                    print("초기화", nowDay)
                     huntig_continue = False
                 else:
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
+                    nowDay = yesterday
+                    nowDay = str(nowDay)
+
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        potion_buy(cla)
+                        huntig_continue = False
+                    else:
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
 
 
-                        # 절전 던전 모드 확인하기
-                        result_check = dungeon_check(cla, data)
+                            # 절전 던전 모드 확인하기
+                            result_check = dungeon_check(cla, data)
 
-                        if result_check[0] == True and result_check[1] == True:
-                            print("정상 던전 사냥 중 : ", data)
-                            # 물약 파악
-                            result_potion = juljun_potion_check(cla)
-                            if result_potion == False:
-                                potion_buy(cla)
+                            if result_check[0] == True and result_check[1] == True:
+                                print("정상 던전 사냥 중 : ", data)
+                                # 물약 파악
+                                result_potion = juljun_potion_check(cla)
+                                if result_potion == False:
+                                    potion_buy(cla)
+                                    huntig_continue = False
+                            elif result_check[0] == True and result_check[1] == False:
+                                juljun_off(cla)
+                                time.sleep(0.2)
+                                click_pos_2(895, 455, cla)
+                                time.sleep(0.2)
+                                juljun_on(cla)
+                            else:
                                 huntig_continue = False
-                        elif result_check[0] == True and result_check[1] == False:
-                            juljun_off(cla)
-                            time.sleep(0.2)
-                            click_pos_2(895, 455, cla)
-                            time.sleep(0.2)
-                            juljun_on(cla)
-                        else:
-                            huntig_continue = False
 
-                # dead
-                why = "롬 : " + str(data) + " 던전 사냥 중 튕겼다.."
-                result_crash = crash_check(cla, why)
-                if result_crash == True:
-                    huntig_continue = False
+                    # dead
+                    why = "롬 : " + str(data) + " 던전 사냥 중 튕겼다.."
+                    result_crash = crash_check(cla, why)
+                    if result_crash == True:
+                        huntig_continue = False
 
 
         elif "자동사냥" in data:
@@ -605,37 +628,60 @@ def huntig_check(cla, data):
             while huntig_continue is True:
 
                 print("hunting checking", data)
-                result_out = out_check(cla)
-                if result_out == True:
-                    potion_buy(cla)
+
+                dir_path = "C:\\my_games\\" + str(v_.game_folder)
+                file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
+
+                isRefresh = False
+                while isRefresh is False:
+                    if os.path.isfile(file_path13) == True:
+                        with open(file_path13, "r", encoding='utf-8-sig') as file:
+                            isRefresh = True
+                            refresh_time = file.read()
+                            print("refresh_time", refresh_time)
+                    else:
+                        with open(file_path13, "w", encoding='utf-8-sig') as file:
+                            file.write(str(6))
+
+                if nowTime >= int(refresh_time):
+                    nowDay = str(nowDay)
+                    print("초기화", nowDay)
                     huntig_continue = False
                 else:
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        result_check = jadong_check(cla)
+                    nowDay = yesterday
+                    nowDay = str(nowDay)
 
-                        if result_check == True:
-                            print("정상 자동 사냥 중......")
-                            # 물약 파악
-                            result_potion = juljun_potion_check(cla)
-                            if result_potion == False:
-                                potion_buy(cla)
-                                huntig_continue = False
-                        else:
-                            juljun_off(cla)
-                            time.sleep(0.2)
-                            click_pos_2(895, 455, cla)
-                            time.sleep(0.2)
-                            juljun_on(cla)
-                time.sleep(0.2)
-                # dead
-                why = "롬 자동 사냥 중 튕겼다.."
-                result_crash = crash_check(cla, why)
-                if result_crash == True:
-                    huntig_continue = False
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        potion_buy(cla)
+                        huntig_continue = False
+                    else:
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            result_check = jadong_check(cla)
+
+                            if result_check == True:
+                                print("정상 자동 사냥 중......")
+                                # 물약 파악
+                                result_potion = juljun_potion_check(cla)
+                                if result_potion == False:
+                                    potion_buy(cla)
+                                    huntig_continue = False
+                            else:
+                                juljun_off(cla)
+                                time.sleep(0.2)
+                                click_pos_2(895, 455, cla)
+                                time.sleep(0.2)
+                                juljun_on(cla)
+                    time.sleep(0.2)
+                    # dead
+                    why = "롬 자동 사냥 중 튕겼다.."
+                    result_crash = crash_check(cla, why)
+                    if result_crash == True:
+                        huntig_continue = False
 
     except Exception as e:
         print(e)
