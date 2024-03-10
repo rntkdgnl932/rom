@@ -1442,7 +1442,7 @@ class FirstTab(QWidget):
             tgl_now = "On"
         else:
             tgl_now = "Off"
-        self.now_toggle.setText("다크디멘션 : " + str(tgl_now) + "\n")
+        self.now_toggle.setText("수집 : " + str(tgl_now) + "\n")
         self.tgl.setChecked(v_.onCollection)
         #self.set_rand_int()
 

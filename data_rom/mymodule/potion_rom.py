@@ -410,8 +410,9 @@ def juljun_potion_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("가방 꽉 찼다")
                     v_.collection_today = True
-                    collection_start(cla)
-                    time.sleep(0.5)
+                    if v_.onCollection == True:
+                        collection_start(cla)
+                        time.sleep(0.5)
                     boonhae_start(cla)
                     time.sleep(0.5)
                     juljun_on(cla)
