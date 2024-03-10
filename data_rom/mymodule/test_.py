@@ -52,23 +52,7 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    for i in range(3):
-        num = i + 1
-        name = "skillbook_knight_" + str(num)
-        print(name)
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_" + str(num) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 130, 920, 530, "two", img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            print("skillbook_knight_", num, imgs_)
-
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_rare_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 130, 920, 530, "two", img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("skillbook_knight_rare_1", imgs_)
+    juljun_potion_check("two")
 
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
