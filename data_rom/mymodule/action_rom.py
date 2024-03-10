@@ -541,12 +541,14 @@ def moving_check(cla):
 def huntig_check(cla, data):
     import numpy as np
     import cv2
+    import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, menu_open, juljun_off, juljun_on
     from potion_rom import juljun_potion_check, potion_buy
     from dungeon_rom import dungeon_check
     from jadong_rom import jadong_check
-
+    from datetime import datetime
+    from datetime import date, timedelta
 
     try:
 
@@ -559,6 +561,13 @@ def huntig_check(cla, data):
             while huntig_continue is True:
 
                 print("hunting checking", data)
+
+                nowDay_ = datetime.today().strftime("%Y%m%d")
+                nowDay = int(nowDay_)
+                nowTime = int(datetime.today().strftime("%H"))
+                yesterday_ = date.today() - timedelta(1)
+                yesterday = int(yesterday_.strftime('%Y%m%d'))
+
 
                 dir_path = "C:\\my_games\\" + str(v_.game_folder)
                 file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
@@ -628,6 +637,12 @@ def huntig_check(cla, data):
             while huntig_continue is True:
 
                 print("hunting checking", data)
+
+                nowDay_ = datetime.today().strftime("%Y%m%d")
+                nowDay = int(nowDay_)
+                nowTime = int(datetime.today().strftime("%H"))
+                yesterday_ = date.today() - timedelta(1)
+                yesterday = int(yesterday_.strftime('%Y%m%d'))
 
                 dir_path = "C:\\my_games\\" + str(v_.game_folder)
                 file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
