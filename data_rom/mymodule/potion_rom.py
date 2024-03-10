@@ -355,6 +355,7 @@ def juljun_potion_check(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, juljun_on
     from collection_rom import collection_start
+    from boonhae_rom import boonhae_start
 
     try:
         print("juljun_potion_check")
@@ -410,6 +411,8 @@ def juljun_potion_check(cla):
                     print("가방 꽉 찼다")
                     v_.collection_today = True
                     collection_start(cla)
+                    time.sleep(0.5)
+                    boonhae_start(cla)
                     time.sleep(0.5)
                     juljun_on(cla)
 

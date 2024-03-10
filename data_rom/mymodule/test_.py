@@ -52,22 +52,23 @@ def go_test():
     # data = "던전_일반_카타콤_1"
     # dungeon_start(cla, data)
 
-    for i in range(10):
-
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\detail_on.PNG"
+    for i in range(3):
+        num = i + 1
+        name = "skillbook_knight_" + str(num)
+        print(name)
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_" + str(num) + ".PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(910, 100, 960, 150, cla, img, 0.7)
+        imgs_ = imgs_set_(680, 130, 920, 530, "two", img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            break
-        else:
-            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\jadong\\detail_off.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(910, 100, 960, 150, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-        time.sleep(0.5)
+            print("skillbook_knight_", num, imgs_)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\list\\skillbook_knight_rare_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(680, 130, 920, 530, "two", img, 0.85)
+    if imgs_ is not None and imgs_ != False:
+        print("skillbook_knight_rare_1", imgs_)
 
 
     # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion.PNG"
