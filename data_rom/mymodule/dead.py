@@ -268,6 +268,15 @@ def dead_recover(cla):
                                         why = "장비 복구 했다. 반드시 확인 후 다시 켜라"
                                         line_to_me(cla, why)
 
+                                        v_.onCollection = False
+
+                                        dir_path_col = "C:\\my_games\\" + str(v_.game_folder)
+                                        file_path_col = dir_path_col + "\\mysettings\\collection\\collection_toggle.txt"
+
+                                        with open(file_path_col, "w", encoding='utf-8-sig') as file:
+                                            file.write("off")
+                                            time.sleep(0.2)
+
                                         dir_path = "C:\\my_games\\load\\rom"
                                         file_path = dir_path + "\\start.txt"
                                         file_path2 = dir_path + "\\cla.txt"
