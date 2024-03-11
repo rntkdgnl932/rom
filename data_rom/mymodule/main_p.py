@@ -768,26 +768,48 @@ class FirstTab(QWidget):
 
         # 콜렉션 온오프(수집 온오프)
         self.onActivated_slelect_collection_toggle_read()
+        self.onActivated_slelect_auction_toggle_read()
 
-        self.collection_on_off = QGroupBox('수집 On/Off')
-        print("dark_demention", v_.onCollection)
+        self.collection_on_off = QGroupBox('수집, 수집 전 거래소 On/Off')
+        print("수집", v_.onCollection)
+        print("수집 전 거래소", v_.onAuction)
+
         if v_.onCollection == True:
             tgl_now = "On"
         else:
             tgl_now = "Off"
+
+        if v_.onAuction == True:
+            tgl_now2 = "On"
+        else:
+            tgl_now2 = "Off"
+
         self.now_toggle = QLabel("수집 : " + tgl_now + "\n")
+
         # 토글 버튼
         self.tgl = QCheckBox("On / Off")
         self.tgl.adjustSize()
         self.tgl.setChecked(v_.onCollection)
         self.tgl.toggled.connect(self.onActivated_slelect_collection_toggle)
 
+        self.now_toggle2 = QLabel("수집 전 거래소 : " + tgl_now2 + "\n")
+
+        self.tgl2 = QCheckBox("On / Off")
+        self.tgl2.adjustSize()
+        self.tgl2.setChecked(v_.onAuction)
+        self.tgl2.toggled.connect(self.onActivated_slelect_auction_toggle)
+
         tgl33 = QHBoxLayout()
         tgl33.addWidget(self.now_toggle)
+
 
         collec_box = QVBoxLayout()
         collec_box.addLayout(tgl33)
         collec_box.addWidget(self.tgl)
+        collec_box.addWidget(self.now_toggle2)
+        collec_box.addWidget(self.tgl2)
+
+
 
         self.collection_on_off.setLayout(collec_box)
 
@@ -1446,6 +1468,62 @@ class FirstTab(QWidget):
             tgl_now = "Off"
         self.now_toggle.setText("수집 : " + str(tgl_now) + "\n")
         self.tgl.setChecked(v_.onCollection)
+        #self.set_rand_int()
+
+    def onActivated_slelect_auction_toggle_read(self):
+        print('onAuction read', v_.onAuction)
+        dir_path = "C:\\my_games\\" + str(v_.game_folder)
+        dir_toggle = "C:\\my_games\\" + str(v_.game_folder) + "\\mysettings\\auction"
+        file_path = dir_path + "\\mysettings\\auction\\auction_toggle.txt"
+
+        isToggle = False
+        while isToggle is False:
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+
+                    read_tgl = file.read()
+                    if read_tgl == "on":
+                        isToggle = True
+                        v_.onAuction = True
+                    else:
+                        isToggle = True
+                        v_.onAuction = False
+            else:
+                if os.path.isdir(dir_toggle) == False:
+                    print('토글 디렉토리 존재하지 않음')
+                    os.makedirs(dir_toggle)
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write("off")
+        return v_.onAuction
+
+    def onActivated_slelect_auction_toggle(self, e):
+        v_.onAuction = e
+        print('onAuction change', v_.onAuction)
+        dir_path = "C:\\my_games\\" + str(v_.game_folder)
+        dir_toggle = "C:\\my_games\\" + str(v_.game_folder) + "\\mysettings\\auction"
+        file_path = dir_path + "\\mysettings\\auction\\auction_toggle.txt"
+
+        isToggle = False
+        while isToggle is False:
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    isToggle = True
+                    if e == True:
+                        file.write("on")
+                    else:
+                        file.write("off")
+            else:
+                if os.path.isdir(dir_toggle) == False:
+                    print('토글 디렉토리 존재하지 않음')
+                    os.makedirs(dir_toggle)
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write("off")
+        if v_.onAuction == True:
+            tgl_now2 = "On"
+        else:
+            tgl_now2 = "Off"
+        self.now_toggle2.setText("수집 전 거래소 : " + str(tgl_now2) + "\n")
+        self.tgl2.setChecked(v_.onAuction)
         #self.set_rand_int()
 
     def onActivated_cla(self, text):

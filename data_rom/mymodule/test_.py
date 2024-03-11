@@ -16,12 +16,12 @@ def go_test():
     import random
     from tuto_main import tuto_start
     from action_rom import menu_open, juljun_off, juljun_on, moving_check
-    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, mouse_move_cpp, text_check_get, in_number_check, int_put_
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, mouse_move_cpp, text_check_get, in_number_check, int_put_, text_check_get_2, text_check_get_3
     from dungeon_rom import dungeon_start, dungeon_check
     from dead import dead_recover
     from clean_screen_rom import clean_screen
-    from auction_rom import auction_start
-    from property_rom import my_property_upload
+    from auction_rom import auction_start, collection_before_auction_start
+    from property_rom import my_property_upload, mine_check
     from clean_screen_rom import clean_screen
 
     from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
@@ -45,6 +45,35 @@ def go_test():
         plus = 960 * 3
 
     print("test")
+
+
+    collection_before_auction_start("two")
+
+    # read_dia = " | 466"
+    #
+    # digit_ready = in_number_check(read_dia)
+    # print("digit_ready", digit_ready)
+    # if digit_ready == True:
+    #     read_data_int = int(int_put_(read_dia))
+    #     print("read_data_int", read_data_int)
+    #     dia_ = read_data_int
+
+    # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\gold.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(360, 30, 600, 70, cla, img, 0.85)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("gold", imgs_)
+    #     # 481
+    #     x_reg_1 = imgs_.x - plus
+    #
+    #     for i in range(4):
+    #         read_gold = text_check_get(x_reg_1 + 10 + i, 38, x_reg_1 + 80, 50, cla)
+    #         if read_gold == "":
+    #             print("골드 못 읽음")
+    #         else:
+    #             print("read_gold", read_gold)
+    #             break
 
     # 던전_특수_정령의성채_1
 

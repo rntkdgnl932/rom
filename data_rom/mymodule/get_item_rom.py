@@ -18,6 +18,11 @@ def get_item_start(cla):
     try:
         print("get_item_start")
 
+        get_chulsuk(cla)
+        get_post(cla)
+        get_upjuk(cla)
+        get_mission(cla)
+
 
 
     except Exception as e:

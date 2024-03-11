@@ -55,6 +55,9 @@ onForceGoldSpot = "none"
 # 수집(아레스에서는 다크디멘션으로 대체)
 onCollection = False
 
+# 거래소
+onAuction = False
+
 
 # 마우스 관련
 mouse_speed = 20

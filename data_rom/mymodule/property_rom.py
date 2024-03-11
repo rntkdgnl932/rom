@@ -214,7 +214,13 @@ def mine_check(cla):
                         else:
                             print("read_gold", read_gold)
                             break
-
+                    read_gold = int_put_(read_gold)
+                    digit_ready = in_number_check(read_gold)
+                    print("digit_ready", digit_ready)
+                    if digit_ready == True:
+                        read_data_int = int(read_gold)
+                        print("read_data_int", read_data_int)
+                        gold_ = read_data_int
 
 
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\dia.PNG"
@@ -226,75 +232,87 @@ def mine_check(cla):
                     # 426
                     x_reg_2 = imgs_.x - plus
 
-                    for i in range(4):
-                        read_dia = text_check_get(x_reg_2 + 4 + i, 38, x_reg_2 + 30, 50, cla)
-                        if read_dia == "":
-                            print("다이아 못 읽음")
-                        else:
-                            print("read_dia", read_dia)
-                            break
+                    read_dia = text_check_get(x_reg_2 + 1, 38, x_reg_2 + 30, 50, cla)
+                    if read_dia == "":
+                        print("다이아 못 읽음 1")
 
-                if dia_ == 0:
-                    clean_screen(cla)
-                    time.sleep(0.3)
-                    for i in range(10):
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\property\\property_title.PNG"
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\dia_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 50, 480, 75, cla, img, 0.8)
+                        imgs_ = imgs_set_(730, 390, 820, 415, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            read_dia = text_check_get(518, 77, 549, 90, cla)
+                            print("dia_2", imgs_)
+                            # 426
+                            x_reg_dia_2 = imgs_.x - plus
+                            y_reg_dia_2 = imgs_.y
+
+                            read_dia = text_check_get(x_reg_dia_2, y_reg_dia_2 - 8, 815, y_reg_dia_2 + 8, cla)
                             if read_dia == "":
-                                print("다이아 못 읽음")
+                                print("다이아 못 읽음 2")
                             else:
-                                print("read_dia", read_dia)
+                                print("read_dia : ", read_dia)
 
-                            read_gold = text_check_get(500, 99, 549, 112, cla)
-                            if read_gold == "":
-                                print("골드 못 읽음")
-                            else:
-                                print("read_gold", read_gold)
+                    else:
+                        print("read_dia", read_dia)
+                    read_dia = int_put_(read_dia)
+                    digit_ready = in_number_check(read_dia)
+                    print("digit_ready", digit_ready)
+                    if digit_ready == True:
+                        read_data_int = int(read_dia)
+                        print("read_data_int", read_data_int)
+                        dia_ = read_data_int
 
-                            break
+                # digit_ready = in_number_check(read_gold)
+                # print("digit_ready", digit_ready)
+                # if digit_ready == True:
+                #     read_data_int = int(int_put_(read_gold))
+                #     print("read_data_int", read_data_int)
+                #     gold_ = read_data_int
+                #
+                # digit_ready = in_number_check(read_dia)
+                # print("digit_ready", digit_ready)
+                # if digit_ready == True:
+                #     read_data_int = int(int_put_(read_dia))
+                #     print("read_data_int", read_data_int)
+                #     dia_ = read_data_int
 
-                        else:
-                            click_pos_2(444, 44, cla)
-                        time.sleep(0.5)
+                # if dia_ == 0:
+                #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\auction\\dia_2.PNG"
+                #     img_array = np.fromfile(full_path, np.uint8)
+                #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                #     imgs_ = imgs_set_(730, 390, 820, 415, cla, img, 0.85)
+                #     if imgs_ is not None and imgs_ != False:
+                #         print("dia_2", imgs_)
+                #         # 426
+                #         x_reg_dia_2 = imgs_.x - plus
+                #         y_reg_dia_2 = imgs_.y
+                #
+                #         read_dia = text_check_get(x_reg_dia_2, y_reg_dia_2 - 8, 815, y_reg_dia_2 + 8, cla)
+                #         if read_dia == "":
+                #             print("다이아 못 읽음")
+                #         else:
+                #             print("read_dia : ", read_dia)
 
-                if gold_ == 0:
-                    clean_screen(cla)
-                    time.sleep(0.3)
-                    for i in range(10):
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\property\\property_title.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 50, 480, 75, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            read_gold = text_check_get(500, 99, 549, 112, cla)
-                            if read_gold == "":
-                                print("골드 못 읽음")
-                            else:
-                                print("read_gold", read_gold)
-
-                            break
-
-                        else:
-                            click_pos_2(444, 44, cla)
-                        time.sleep(0.5)
-
-                digit_ready = in_number_check(read_gold)
-                print("digit_ready", digit_ready)
-                if digit_ready == True:
-                    read_data_int = int(int_put_(read_gold))
-                    print("read_data_int", read_data_int)
-                    gold_ = read_data_int
-
-                digit_ready = in_number_check(read_dia)
-                print("digit_ready", digit_ready)
-                if digit_ready == True:
-                    read_data_int = int(int_put_(read_dia))
-                    print("read_data_int", read_data_int)
-                    dia_ = read_data_int
+                # if gold_ == 0:
+                #     clean_screen(cla)
+                #     time.sleep(0.3)
+                #     for i in range(10):
+                #         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\property\\property_title.PNG"
+                #         img_array = np.fromfile(full_path, np.uint8)
+                #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                #         imgs_ = imgs_set_(400, 50, 480, 75, cla, img, 0.8)
+                #         if imgs_ is not None and imgs_ != False:
+                #             read_gold = text_check_get(500, 99, 549, 112, cla)
+                #             if read_gold == "":
+                #                 print("골드 못 읽음")
+                #             else:
+                #                 print("read_gold", read_gold)
+                #
+                #             break
+                #
+                #         else:
+                #             click_pos_2(444, 44, cla)
+                #         time.sleep(0.5)
 
 
             else:

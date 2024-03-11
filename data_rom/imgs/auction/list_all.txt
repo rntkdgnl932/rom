@@ -1,3 +1,5 @@
 skillbook_knight_1
 skillbook_knight_2
 skillbook_knight_3
+skillbook_knight_rare_1
+skillbook_knight_rare_2

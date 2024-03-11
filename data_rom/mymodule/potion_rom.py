@@ -15,7 +15,7 @@ def potion_buy(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, juljun_off, moving_check
     from clean_screen_rom import clean_screen
-    from get_item_rom import get_chulsuk
+    from get_item_rom import get_chulsuk, get_item_start
 
     try:
         print("potion_buy")
@@ -43,7 +43,7 @@ def potion_buy(cla):
                     buy_ = True
 
                     print("마을이다")
-                    get_chulsuk(cla)
+                    get_item_start(cla)
                     clean_screen(cla)
 
                     for i in range(10):
@@ -106,7 +106,7 @@ def potion_buy_start(cla):
         buy_count = 0
         while buy_ is False:
             buy_count += 1
-            if buy_count > 7:
+            if buy_count > 5:
                 buy_ = True
 
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_jabhwa.PNG"
@@ -320,7 +320,15 @@ def potion_buy_start(cla):
                     print("full_potion", imgs_.x, imgs_.y)
                     buy_ = True
                 else:
-                    click_pos_2(820, 550, cla)
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_potion_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(890, 530, 930, 560, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("full_potion_2", imgs_.x, imgs_.y)
+                        buy_ = True
+                    else:
+                        click_pos_2(820, 550, cla)
 
 
             else:

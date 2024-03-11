@@ -68,6 +68,8 @@ def menu_open(cla):
 
 
             else:
+                clean_screen(cla)
+
                 result_out = out_check(cla)
 
                 if result_out == True:
@@ -89,7 +91,7 @@ def menu_open(cla):
                     if imgs_ is not None and imgs_ != False:
                         juljun_off(cla)
 
-                    clean_screen(cla)
+
             time.sleep(0.5)
 
 
@@ -129,6 +131,9 @@ def menu_open_pure(cla):
 
 
             else:
+
+                clean_screen(cla)
+
                 result_out = out_check(cla)
 
                 if result_out == True:
@@ -150,7 +155,7 @@ def menu_open_pure(cla):
                     if imgs_ is not None and imgs_ != False:
                         juljun_off(cla)
 
-                    clean_screen(cla)
+
             time.sleep(0.5)
 
 

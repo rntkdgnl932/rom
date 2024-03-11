@@ -17,9 +17,14 @@ def collection_start(cla):
     from action_rom import out_check, menu_open_pure
     from clean_screen_rom import clean_screen
     from boonhae_rom import boonhae_start
+    from auction_rom import collection_before_auction_start
 
     try:
         print("collection_start")
+
+        # 콜렉션 하기 전 물품 팔기
+        if v_.onAuction == True:
+            collection_before_auction_start(cla)
 
         if cla == "one":
             plus = 0
