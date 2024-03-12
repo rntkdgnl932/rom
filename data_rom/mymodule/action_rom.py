@@ -193,7 +193,7 @@ def out_check(cla):
             if imgs_ is not None and imgs_ != False:
                 character_screen_check(cla, v_.character_number)
 
-        crash_check(cla, "check")
+        crash_check(cla, "check...")
 
 
         return out_
@@ -302,22 +302,15 @@ def crash_check(cla, data):
                             logout_ = False
                             break
                         else:
-                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\logout.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\kakao_login_btn.png"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 180, 520, 330, cla, img, 0.8)
+                            imgs_ = imgs_set_(280, 150, 1900, 900, "one", img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 why = "롬 카카오 로그인 화면"
+                                logout_ = True
                                 break
                             else:
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    why = "롬 팅겨서 바깥 화면임"
-                                    click_pos_2(670, 240, cla)
-
                                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\logout.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -325,7 +318,29 @@ def crash_check(cla, data):
                                 if imgs_ is not None and imgs_ != False:
                                     # click_pos_2(475, 360, cla)
                                     why = "롬 인증 실패 화면"
+                                    logout_ = True
                                     break
+                                else:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_logout.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        logout_ = True
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            why = "롬 팅겨서 바깥 화면임"
+                                            click_pos_2(670, 240, cla)
+                                        else:
+                                            why = "튕김 취소"
+                                            logout_ = False
+
+
                         time.sleep(1)
 
                 if logout_ == True:
