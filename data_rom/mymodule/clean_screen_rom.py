@@ -47,6 +47,7 @@ def clean_screen_start(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, confirm_all
+    from action_rom import juljun_off
 
     try:
         print("clean_screen")
@@ -59,92 +60,101 @@ def clean_screen_start(cla):
             clean = False
         time.sleep(0.5)
 
-        # dead 복구 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\dead_close.PNG"
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 70, 250, 105, cla, img, 0.7)
+        imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            print("dead_close", imgs_.x, imgs_.y)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
             clean = False
+            juljun_off(cla)
 
-        # lv 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 70, 250, 120, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("lv_close", imgs_.x, imgs_.y)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            clean = False
-
-        # x 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("x_close", imgs_.x, imgs_.y)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            clean = False
         else:
+            # dead 복구 닫기
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\dead_close.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(200, 70, 250, 105, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("dead_close", imgs_.x, imgs_.y)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                clean = False
+
+            # lv 닫기
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(740, 115, 800, 150, cla, img, 0.7)
+            imgs_ = imgs_set_(200, 70, 250, 120, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("lv_close", imgs_.x, imgs_.y)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                clean = False
+
+            # x 닫기
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("x_close", imgs_.x, imgs_.y)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 clean = False
+            else:
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(740, 115, 800, 150, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("x_close", imgs_.x, imgs_.y)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    clean = False
 
-        # 가방 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\bag_close.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(910, 70, 960, 105, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("bag_close", imgs_.x, imgs_.y)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            clean = False
-
-        # 레벨업 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\bag_close.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 70, 250, 105, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("bag_close", imgs_.x, imgs_.y)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            clean = False
-
-        # 메뉴 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\menu_close.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(910, 30, 950, 80, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("menu_close", imgs_.x, imgs_.y)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            clean = False
-
-        # 각종 컨텐츠 닫기
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\skip\\skip_5.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(830, 480, 960, 580, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            clean = False
-        else:
-            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\all_close.PNG"
+            # 가방 닫기
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\bag_close.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(900, 30, 960, 80, cla, img, 0.7)
+            imgs_ = imgs_set_(910, 70, 960, 105, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
-                print("all_close", imgs_.x, imgs_.y)
+                print("bag_close", imgs_.x, imgs_.y)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 clean = False
+
+            # 레벨업 닫기
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\bag_close.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(200, 70, 250, 105, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("bag_close", imgs_.x, imgs_.y)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                clean = False
+
+            # 메뉴 닫기
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\menu_close.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(910, 30, 950, 80, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("menu_close", imgs_.x, imgs_.y)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                clean = False
+
+            # 각종 컨텐츠 닫기
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\skip\\skip_5.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(830, 480, 960, 580, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                clean = False
+            else:
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\all_close.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(900, 30, 960, 80, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("all_close", imgs_.x, imgs_.y)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    clean = False
 
 
         return clean
