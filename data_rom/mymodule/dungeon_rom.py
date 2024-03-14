@@ -80,7 +80,7 @@ def dungeon_start(cla, data):
         elif result_check[1] == False:
             # 절전풀고 공격하기
             juljun_off(cla)
-            click_pos_2(910, 450, cla)
+            click_pos_2(895, 455, cla)
             juljun_on(cla)
 
 
