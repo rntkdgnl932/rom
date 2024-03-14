@@ -422,8 +422,6 @@ def juljun_potion_check(cla):
                     if v_.onCollection == True:
                         collection_start(cla)
                         time.sleep(0.5)
-                        auction_ready_boonhae_start(cla)
-                        time.sleep(0.5)
                     boonhae_start(cla)
                     time.sleep(0.5)
                     juljun_on(cla)

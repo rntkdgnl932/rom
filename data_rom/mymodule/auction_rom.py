@@ -17,9 +17,12 @@ def auction_start(cla):
     from schedule import myQuest_play_add, myQuest_play_check
     from action_rom import menu_open, menu_open_pure
     from clean_screen_rom import clean_screen
+    from boonhae_rom import auction_ready_boonhae_start
 
     try:
         print("auction_start")
+
+        auction_ready_boonhae_start(cla)
 
         auction_in = False
         auction_in_count = 0
@@ -322,9 +325,12 @@ def collection_before_auction_start(cla):
     from schedule import myQuest_play_add, myQuest_play_check
     from action_rom import menu_open_pure
     from clean_screen_rom import clean_screen
+    from boonhae_rom import auction_ready_boonhae_start
 
     try:
         print("collection_before_auction_start")
+
+        auction_ready_boonhae_start(cla)
 
         auction_in = False
         auction_in_count = 0
