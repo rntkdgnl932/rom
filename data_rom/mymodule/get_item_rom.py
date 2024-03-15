@@ -14,9 +14,12 @@ def get_item_start(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check
+    from boonhae_rom import auction_ready_boonhae_start
 
     try:
         print("get_item_start")
+
+        auction_ready_boonhae_start(cla)
 
         get_chulsuk(cla)
         get_post(cla)

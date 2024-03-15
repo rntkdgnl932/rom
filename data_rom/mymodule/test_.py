@@ -23,6 +23,8 @@ def go_test():
     from auction_rom import auction_start, collection_before_auction_start
     from property_rom import my_property_upload, mine_check
     from clean_screen_rom import clean_screen
+    from boonhae_rom import boonhae_start
+    from jadong_rom import jadong_spot
 
     from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
     from potion_rom import potion_buy, juljun_potion_check, out_potion_check, potion_buy_start
@@ -46,8 +48,7 @@ def go_test():
 
     print("test")
 
-
-    collection_before_auction_start("two")
+    jadong_spot(cla)
 
     # read_dia = " | 466"
     #
