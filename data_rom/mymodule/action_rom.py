@@ -678,6 +678,7 @@ def huntig_check(cla, data):
                 yesterday = int(yesterday_.strftime('%Y%m%d'))
 
                 dir_path = "C:\\my_games\\" + str(v_.game_folder)
+                file_path2 = dir_path + "\\mysettings\\refresh_time\\quest.txt"
                 file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
 
                 isRefresh = False
@@ -694,12 +695,16 @@ def huntig_check(cla, data):
                 if nowTime >= int(refresh_time):
                     nowDay = str(nowDay)
                     print("초기화", nowDay)
-                    huntig_continue = False
+
                 else:
                     nowDay = yesterday
                     nowDay = str(nowDay)
-                    
-                if huntig_continue != False:
+
+                with open(file_path2, "r", encoding='utf-8-sig') as file:
+                    lines2 = file.read().splitlines()
+                    day_ = lines2[0].split(":")
+
+                if day_[0] == nowDay:
                     result_out = out_check(cla)
                     if result_out == True:
                         potion_buy(cla)
@@ -730,6 +735,8 @@ def huntig_check(cla, data):
                     result_crash = crash_check(cla, why)
                     if result_crash == True:
                         huntig_continue = False
+                else:
+                    huntig_continue = False
 
     except Exception as e:
         print(e)
