@@ -699,6 +699,8 @@ def huntig_check(cla, data):
                     nowDay = yesterday
                     nowDay = str(nowDay)
 
+                    print("오잉")
+
                     result_out = out_check(cla)
                     if result_out == True:
                         potion_buy(cla)
@@ -709,8 +711,10 @@ def huntig_check(cla, data):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
+                            print("모징")
                             result_check = jadong_check(cla)
-
+                            ###
+                            print("모냥?", result_check)
                             if result_check == True:
                                 print("정상 자동 사냥 중......")
                                 # 물약 파악
