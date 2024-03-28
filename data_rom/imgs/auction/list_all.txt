@@ -3,8 +3,11 @@ skillbook_knight_2
 skillbook_knight_3
 skillbook_knight_rare_1
 skillbook_knight_rare_2
-joomoonseo_moogi
-joomoonseo_bangugoo
+joomoonseo_bangugoo_bling
+joomoonseo_bangugoo_bling2
 joomoonseo_moogi_bling
 joomoonseo_moogi_bling2
 belt_myungin
+gorgon_bbool
+sukpan_rare_1
+sukpan_rare_2
