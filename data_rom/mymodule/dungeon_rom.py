@@ -26,6 +26,8 @@ def dungeon_start(cla, data):
 
             huntig_check(cla, data)
 
+
+
             # print("정상 사냥 중", data)
             # # 물약 파악
             # result_potion = juljun_potion_check(cla)
@@ -95,9 +97,10 @@ def dungeon_join(cla, data):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_rom import menu_open, out_check
+    from action_rom import menu_open, out_check, moving_check
     from schedule import myQuest_play_add
     from clean_screen_rom import clean_screen
+    from potion_rom import potion_buy
 
     try:
         print("dungeon_join", data)
@@ -712,9 +715,21 @@ def dungeon_join(cla, data):
                     for i in range(10):
                         result_out = out_check(cla)
                         if result_out == True:
-                            # 공격버튼 누르기
-                            click_pos_2(895, 455, cla)
-                            break
+
+                            if dun_2 == "혼돈의성채" or dun_2 == "정령의성채":
+                                for m in range(5):
+                                    result_move = moving_check(cla)
+                                    if result_move == False:
+                                        click_pos_2(750, 200, cla)
+                                    time.sleep(1)
+
+                                # 공격버튼 누르기
+                                click_pos_2(895, 455, cla)
+                                break
+                            else:
+                                # 공격버튼 누르기
+                                click_pos_2(895, 455, cla)
+                                break
                         else:
                             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_confirm.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -725,6 +740,11 @@ def dungeon_join(cla, data):
                         time.sleep(2)
 
             else:
+
+                if dun_2 == "혼돈의성채" or dun_2 == "정령의성채":
+                    potion_buy(cla)
+                    time.sleep(1)
+
                 menu_open(cla)
 
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\menu_dungeon.PNG"

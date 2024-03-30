@@ -582,6 +582,7 @@ def huntig_check(cla, data):
 
                 print("hunting checking", data)
 
+
                 nowDay_ = datetime.today().strftime("%Y%m%d")
                 nowDay = int(nowDay_)
                 nowTime = int(datetime.today().strftime("%H"))

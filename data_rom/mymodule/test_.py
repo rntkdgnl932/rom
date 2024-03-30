@@ -26,7 +26,7 @@ def go_test():
     from boonhae_rom import boonhae_start
     from jadong_rom import jadong_spot
 
-    from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission
+    from get_item_rom import get_chulsuk, get_post, get_upjuk, get_mission, get_sangjum
     from potion_rom import potion_buy, juljun_potion_check, out_potion_check, potion_buy_start
     from collection_rom import collection_start
 
@@ -48,7 +48,14 @@ def go_test():
 
     print("test")
 
-    jadong_spot(cla)
+    get_sangjum(cla)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\bangugoo_click.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(130, 110, 920, 360, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("bangugoo_click", imgs_.x, imgs_.y)
 
     # read_dia = " | 466"
     #
