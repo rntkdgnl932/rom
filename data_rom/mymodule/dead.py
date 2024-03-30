@@ -55,6 +55,8 @@ def dead_check(cla):
                 myQuest_play_add(cla, result_schedule_)
                 if result_schedule_ == "튜토육성":
                     v_.collection_today = True
+            elif "혼돈의성채" in result_schedule_ or "정령의성채" in result_schedule_:
+                myQuest_play_add(cla, result_schedule_)
 
 
         return recovery
