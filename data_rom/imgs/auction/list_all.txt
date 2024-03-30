@@ -11,3 +11,5 @@ belt_myungin
 gorgon_bbool
 sukpan_rare_1
 sukpan_rare_2
+junghwasuk_dwaf
+earing_soop
