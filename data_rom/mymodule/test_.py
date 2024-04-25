@@ -48,14 +48,16 @@ def go_test():
 
     print("test")
 
-    get_sangjum(cla)
-
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\bangugoo_click.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(130, 110, 920, 360, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("bangugoo_click", imgs_.x, imgs_.y)
+    for i in range(10):
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\drag_scan_check.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(915, 180, 950, 230, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            break
+        else:
+            drag_pos(850, 300, 400, 400, cla)
+            time.sleep(1)
 
     # read_dia = " | 466"
     #
