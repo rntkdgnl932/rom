@@ -48,12 +48,21 @@ def go_test():
 
     print("test")
 
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        drag_pos(470, 250, 900, 250, cla)
+
+    time.sleep(5)
+    print("dfgdsafasd")
     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("가방 꽉 찼다")
+        print("가방 꽉 찼다 9 ")
         juljun_off(cla)
     else:
         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
@@ -61,7 +70,7 @@ def go_test():
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("가방 꽉 찼다")
+            print("가방 꽉 찼다 85")
             juljun_off(cla)
         else:
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
@@ -69,7 +78,7 @@ def go_test():
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("가방 꽉 찼다")
+                print("가방 꽉 찼다 8")
                 juljun_off(cla)
 
     # read_dia = " | 466"
