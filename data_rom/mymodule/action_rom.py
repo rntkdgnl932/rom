@@ -461,7 +461,7 @@ def juljun_off(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            drag_pos(470, 250, 900, 250, cla)
+            drag_pos(440, 250, 900, 250, cla)
 
 
             for i in range(10):
