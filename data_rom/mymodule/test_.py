@@ -16,7 +16,7 @@ def go_test():
     import random
     from tuto_main import tuto_start
     from action_rom import menu_open, juljun_off, juljun_on, moving_check
-    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, mouse_move_cpp, text_check_get, in_number_check, int_put_, text_check_get_2, text_check_get_3
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, get_region, text_check_get, in_number_check, int_put_, imgs_set_num
     from dungeon_rom import dungeon_start, dungeon_check
     from dead import dead_recover
     from clean_screen_rom import clean_screen
@@ -47,39 +47,15 @@ def go_test():
         plus = 960 * 3
 
     print("test")
-
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_on.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        drag_pos(470, 250, 900, 250, cla)
-
-    time.sleep(5)
-    print("dfgdsafasd")
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("가방 꽉 찼다 9 ")
-        juljun_off(cla)
-    else:
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
+    pyautogui.screenshot('asd.png', region=(get_region(700, 530, 713, 561, cla)))
+    for i in range(10):
+        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 530, 713, 561, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
-            print("가방 꽉 찼다 85")
-            juljun_off(cla)
-        else:
-            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\full_bag_check.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(720, 50, 780, 85, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("가방 꽉 찼다 8")
-                juljun_off(cla)
+            print("물약 100 자릿수 number is... ", i)
+            break
 
     # read_dia = " | 466"
     #
