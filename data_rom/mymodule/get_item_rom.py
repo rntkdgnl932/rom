@@ -39,9 +39,13 @@ def get_chulsuk(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check, menu_open
     from clean_screen_rom import clean_screen
+    from boonhae_rom import boonhae_start
 
     try:
         print("get_chulsuk")
+
+        boonhae_start(cla)
+
 
         menu_opened = False
         menu_opened_count = 0

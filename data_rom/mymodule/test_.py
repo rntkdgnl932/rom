@@ -46,16 +46,18 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    print("test")
-    pyautogui.screenshot('asd.png', region=(get_region(700, 530, 713, 561, cla)))
-    for i in range(10):
-        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 530, 713, 561, cla, img, 0.75)
-        if imgs_ is not None and imgs_ != False:
-            print("물약 100 자릿수 number is... ", i)
-            break
+    get_chulsuk(cla)
+
+    # print("test")
+    # pyautogui.screenshot('asd.png', region=(get_region(700, 530, 713, 561, cla)))
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(700, 530, 713, 561, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("물약 100 자릿수 number is... ", i)
+    #         break
 
     # read_dia = " | 466"
     #
