@@ -237,54 +237,61 @@ def crash_check(cla, data):
 
 
             else:
-                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\unusual_access.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
+                imgs_ = imgs_set_(200, 100, 700, 800, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-
+                    why = "비정상적 접근 감지."
                     logout_ = True
-                    crash_game = True
                 else:
-                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\inspection.PNG"
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 100, 650, 500, cla, img, 0.8)
+                    imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        why = "롬 점검중."
                         logout_ = True
+                        crash_game = True
                     else:
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\kakao_login_btn.png"
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\inspection.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(280, 150, 1900, 900, "one", img, 0.7)
+                        imgs_ = imgs_set_(250, 100, 650, 500, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            why = "롬 카카오 로그인 화면"
+                            why = "롬 점검중."
                             logout_ = True
                         else:
-                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_logout.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\kakao_login_btn.png"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
+                            imgs_ = imgs_set_(280, 150, 1900, 900, "one", img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                why = str(data)
+                                why = "롬 카카오 로그인 화면"
                                 logout_ = True
-                                crash_game = True
-                                for i in range(180):
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        break
-                                    else:
-                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\character_select\\game_start.PNG"
+                            else:
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\check\\juljun\\juljun_logout.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(420, 80, 520, 140, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    why = str(data)
+                                    logout_ = True
+                                    crash_game = True
+                                    for i in range(180):
+                                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\logout\\server_select_btn.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
+                                        imgs_ = imgs_set_(280, 470, 410, 520, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             break
-                                    time.sleep(5)
+                                        else:
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\character_select\\game_start.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                break
+                                        time.sleep(5)
 
             if logout_ == True:
 
