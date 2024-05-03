@@ -14,6 +14,7 @@ def character_screen_check(cla, character_id):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check
+    from massenger import line_to_me
 
     try:
         print("character_screen_check")
@@ -87,6 +88,8 @@ def character_screen_check(cla, character_id):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
+                                why = "롬 접속 시도 한다."
+                                line_to_me(cla, why)
                                 break
                             time.sleep(1)
                 time.sleep(0.5)
