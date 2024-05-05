@@ -597,6 +597,7 @@ def huntig_check(cla, data):
                 result_dead_check = dead_check(cla)
                 if result_dead_check == True:
                     dead_recover(cla)
+                    huntig_continue = False
 
 
                 nowDay_ = datetime.today().strftime("%Y%m%d")
@@ -646,6 +647,7 @@ def huntig_check(cla, data):
                             result_dead_check = dead_check(cla)
                             if result_dead_check == True:
                                 dead_recover(cla)
+                                huntig_continue = False
                             potion_buy(cla)
                             huntig_continue = False
                         else:
@@ -694,6 +696,7 @@ def huntig_check(cla, data):
                 result_dead_check = dead_check(cla)
                 if result_dead_check == True:
                     dead_recover(cla)
+                    huntig_continue = False
 
                 nowDay_ = datetime.today().strftime("%Y%m%d")
                 nowDay = int(nowDay_)
@@ -734,6 +737,7 @@ def huntig_check(cla, data):
                         result_dead_check = dead_check(cla)
                         if result_dead_check == True:
                             dead_recover(cla)
+                            huntig_continue = False
 
 
                         potion_buy(cla)
