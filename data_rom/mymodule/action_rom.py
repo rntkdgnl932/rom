@@ -468,6 +468,8 @@ def juljun_off(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
+            click_pos_2(440, 250, cla)
+            time.sleep(0.1)
             drag_pos(440, 250, 900, 250, cla)
 
 
@@ -481,6 +483,8 @@ def juljun_off(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(400, 350, 550, 400, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
+                        click_pos_2(440, 250, cla)
+                        time.sleep(0.1)
                         drag_pos(470, 250, 900, 250, cla)
                 time.sleep(0.5)
     except Exception as e:
