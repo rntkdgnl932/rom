@@ -580,6 +580,7 @@ def huntig_check(cla, data):
     from jadong_rom import jadong_check
     from datetime import datetime
     from datetime import date, timedelta
+    from dead import dead_check, dead_recover
 
     try:
 
@@ -592,6 +593,10 @@ def huntig_check(cla, data):
             while huntig_continue is True:
 
                 print("hunting checking", data)
+
+                result_dead_check = dead_check(cla)
+                if result_dead_check == True:
+                    dead_recover(cla)
 
 
                 nowDay_ = datetime.today().strftime("%Y%m%d")
@@ -638,6 +643,9 @@ def huntig_check(cla, data):
 
                         result_out = out_check(cla)
                         if result_out == True:
+                            result_dead_check = dead_check(cla)
+                            if result_dead_check == True:
+                                dead_recover(cla)
                             potion_buy(cla)
                             huntig_continue = False
                         else:
@@ -683,6 +691,10 @@ def huntig_check(cla, data):
 
                 print("hunting checking", data)
 
+                result_dead_check = dead_check(cla)
+                if result_dead_check == True:
+                    dead_recover(cla)
+
                 nowDay_ = datetime.today().strftime("%Y%m%d")
                 nowDay = int(nowDay_)
                 nowTime = int(datetime.today().strftime("%H"))
@@ -719,6 +731,11 @@ def huntig_check(cla, data):
                 if day_[0] == nowDay:
                     result_out = out_check(cla)
                     if result_out == True:
+                        result_dead_check = dead_check(cla)
+                        if result_dead_check == True:
+                            dead_recover(cla)
+
+
                         potion_buy(cla)
                         huntig_continue = False
                     else:
