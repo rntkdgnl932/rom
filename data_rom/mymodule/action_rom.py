@@ -485,7 +485,7 @@ def juljun_off(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(440, 250, cla)
                         time.sleep(0.1)
-                        drag_pos(470, 250, 900, 250, cla)
+                        drag_pos(440, 250, 900, 250, cla)
                 time.sleep(0.5)
     except Exception as e:
         print(e)
