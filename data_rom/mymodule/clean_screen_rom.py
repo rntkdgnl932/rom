@@ -45,7 +45,7 @@ def clean_screen(cla):
 def clean_screen_start(cla):
     import numpy as np
     import cv2
-    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, imgs_set_for
     from action_rom import out_check, confirm_all
     from action_rom import juljun_off
 
@@ -107,6 +107,17 @@ def clean_screen_start(cla):
                     print("x_close", imgs_.x, imgs_.y)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     clean = False
+
+            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_for(0, 30, 960, 580, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("lv_close", imgs_)
+                if len(imgs_) > 0:
+                    for s in range(len(imgs_)):
+                        click_pos_reg(imgs_[s][0], imgs_[s][1], cla)
+                        time.sleep(0.1)
 
             # 가방 닫기
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\bag_close.PNG"
