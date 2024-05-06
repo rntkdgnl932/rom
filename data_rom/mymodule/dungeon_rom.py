@@ -103,7 +103,7 @@ def dungeon_start(cla, data):
 def dungeon_join(cla, data):
     import numpy as np
     import cv2
-    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos, imgs_set_for
     from action_rom import menu_open, out_check, moving_check
     from schedule import myQuest_play_add
     from clean_screen_rom import clean_screen
@@ -764,6 +764,22 @@ def dungeon_join(cla, data):
                             if imgs_ is not None and imgs_ != False:
                                 break
                             else:
+
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 30, 960, 580, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_for(0, 30, 960, 580, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        if len(imgs_) > 0:
+                                            for s in range(len(imgs_)):
+                                                click_pos_reg(imgs_[s][0], imgs_[s][1], cla)
+                                                time.sleep(0.1)
+
                                 drag_pos(850, 300, 400, 400, cla)
                             time.sleep(1)
 
