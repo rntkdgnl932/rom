@@ -745,9 +745,6 @@ def huntig_check(cla, data):
 
                             result_out = out_check(cla)
                             if result_out == True:
-                                result_dead_check = dead_check(cla)
-
-
 
                                 potion_buy(cla)
                                 huntig_continue = False
