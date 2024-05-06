@@ -83,7 +83,7 @@ def dead_recover(cla):
 
         recover_start = False
 
-        for i in range(3):
+        for i in range(10):
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\experience_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -302,6 +302,33 @@ def dead_recover(cla):
                         click_pos_2(25, 195, cla)
 
                     time.sleep(0.5)
+        else:
+            # 장비 복구 메신져 보내기
+            why = "죽고나서 운없게도 장비 복구 못했다. 반드시 확인 후 다시 켜라"
+            line_to_me(cla, why)
+
+            v_.onCollection = False
+
+            dir_path_col = "C:\\my_games\\" + str(v_.game_folder)
+            file_path_col = dir_path_col + "\\mysettings\\collection\\collection_toggle.txt"
+
+            with open(file_path_col, "w", encoding='utf-8-sig') as file:
+                file.write("off")
+                time.sleep(0.2)
+
+            dir_path = "C:\\my_games\\load\\rom"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'no'
+                file.write(str(data))
+                time.sleep(0.2)
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = v_.now_cla
+                file.write(str(data))
+                time.sleep(0.2)
+            os.execl(sys.executable, sys.executable, *sys.argv)
+
         clean_screen(cla)
 
     except Exception as e:
