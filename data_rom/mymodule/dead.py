@@ -27,6 +27,7 @@ def dead_check(cla):
         imgs_ = imgs_set_(430, 170, 520, 220, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             print("dead_title", imgs_.x, imgs_.y)
+            recovery = True
 
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -35,7 +36,7 @@ def dead_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print("dead_confirm", imgs_.x, imgs_.y)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                recovery = True
+
 
         else:
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\experience_title.PNG"
