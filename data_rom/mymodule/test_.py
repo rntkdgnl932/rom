@@ -32,7 +32,7 @@ def go_test():
 
 
     print("test")
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -45,8 +45,8 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
-
-    get_chulsuk(cla)
+    time.sleep(1)
+    drag_pos(460, 250, 800, 250, cla)
 
     # print("test")
     # pyautogui.screenshot('asd.png', region=(get_region(700, 530, 713, 561, cla)))
