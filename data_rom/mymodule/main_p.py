@@ -52,6 +52,7 @@ from request_rom import request_start
 from auction_rom import auction_start
 from potion_rom import potion_buy
 from get_item_rom import get_sangjum
+from towerofevilspirits import tower_start
 
 from stop_event18 import _stop_please
 
@@ -964,7 +965,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 각종템받기, 거래소등록하기, 의뢰')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '상점사기', '의뢰하기', '거래소등록', '튜토육성', '물약채우기', '자동사냥']
+        list6 = ['스케쥴 선택', '상점사기', '의뢰하기', '거래소등록', '튜토육성', '물약채우기', '악령의탑', '자동사냥']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3311,6 +3312,8 @@ class game_Playing(QThread):
                                     dungeon_start(v_.now_cla, result_schedule_)
                                 elif result_schedule_ == "자동사냥":
                                     jadong_start(v_.now_cla)
+                                elif result_schedule_ == "악령의탑":
+                                    tower_start(v_.now_cla)
                                 elif result_schedule_ == "의뢰하기":
                                     request_start(v_.now_cla)
                                 elif result_schedule_ == "상점사기":

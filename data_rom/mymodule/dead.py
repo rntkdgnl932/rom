@@ -29,15 +29,6 @@ def dead_check(cla):
             print("dead_title", imgs_.x, imgs_.y)
             recovery = True
 
-            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(410, 410, 540, 450, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                print("dead_confirm", imgs_.x, imgs_.y)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-
-
         else:
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\experience_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -47,12 +38,13 @@ def dead_check(cla):
                 recovery = True
 
         if recovery == True:
+
             result_schedule = myQuest_play_check(v_.now_cla, "check")
             print("result_schedule", result_schedule)
             character_id = result_schedule[0][1]
             result_schedule_ = result_schedule[0][2]
 
-            if result_schedule_ == "튜토육성" or result_schedule_ == "의뢰하기":
+            if result_schedule_ == "튜토육성" or result_schedule_ == "의뢰하기" or result_schedule_ == "악령의탑":
                 myQuest_play_add(cla, result_schedule_)
                 if result_schedule_ == "튜토육성":
                     v_.collection_today = True
@@ -89,32 +81,48 @@ def dead_recover(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
+                recover_start = True
 
-                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(410, 410, 540, 450, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    print("dead_confirm", imgs_.x, imgs_.y)
-                    recover_start = True
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.5)
+                # full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set_(410, 410, 540, 450, cla, img, 0.7)
+                # if imgs_ is not None and imgs_ != False:
+                #     print("dead_confirm", imgs_.x, imgs_.y)
+                #     recover_start = True
+                #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                #     time.sleep(0.5)
             else:
 
-                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_dungeon.PNG"
+                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 30, 950, 80, cla, img, 0.7)
+                imgs_ = imgs_set_(430, 170, 520, 220, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(1)
-                    click_pos_2(700, 50, cla)
-                    time.sleep(0.5)
-
+                    print("dead_title", imgs_.x, imgs_.y)
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(410, 410, 540, 450, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("dead_confirm", imgs_.x, imgs_.y)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
                 else:
-                    click_pos_2(735, 50, cla)
-                    time.sleep(0.5)
-            time.sleep(0.5)
+                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\title_dungeon.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 30, 950, 80, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(1)
+                        click_pos_2(700, 50, cla)
+                        time.sleep(0.5)
+
+                    else:
+                        click_pos_2(735, 50, cla)
+                        time.sleep(0.5)
+            time.sleep(1)
 
         if recover_start == True:
 
@@ -264,59 +272,83 @@ def dead_recover(cla):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(50, 350, 90, 390, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    # 여기에 추후 복구할 아이템 넣기
-                                    click_pos_2(120, 140, cla)
-                                    time.sleep(0.2)
-                                    click_pos_2(100, 415, cla)
-                                    break
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\not_recover_item.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(130, 210, 210, 250, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    else:
+                                        # 여기에 추후 복구할 아이템 넣기
+                                        click_pos_2(120, 140, cla)
+                                        time.sleep(0.2)
+                                        click_pos_2(100, 415, cla)
+
+                                        for b in range(10):
+                                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\recover_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(440, 210, 540, 240, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("recover_title", imgs_.x, imgs_.y)
+
+                                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(490, 370, 600, 400, cla, img, 0.7)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    print("dead_confirm", imgs_.x, imgs_.y)
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    break
+                                            time.sleep(0.2)
                                 else:
                                     click_pos_2(73, 370, cla)
                                 time.sleep(0.2)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\recover_title.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 210, 540, 240, cla, img, 0.7)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("recover_title", imgs_.x, imgs_.y)
-
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(490, 370, 600, 400, cla, img, 0.7)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("dead_confirm", imgs_.x, imgs_.y)
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                                        # 장비 복구 메신져 보내기
-                                        why = "장비 복구 했다. 반드시 확인 후 다시 켜라"
-                                        line_to_me(cla, why)
-
-                                        v_.onCollection = False
-
-                                        dir_path_col = "C:\\my_games\\" + str(v_.game_folder)
-                                        file_path_col = dir_path_col + "\\mysettings\\collection\\collection_toggle.txt"
-
-                                        with open(file_path_col, "w", encoding='utf-8-sig') as file:
-                                            file.write("off")
-                                            time.sleep(0.2)
-
-                                        dir_path = "C:\\my_games\\load\\rom"
-                                        file_path = dir_path + "\\start.txt"
-                                        file_path2 = dir_path + "\\cla.txt"
-                                        with open(file_path, "w", encoding='utf-8-sig') as file:
-                                            data = 'no'
-                                            file.write(str(data))
-                                            time.sleep(0.2)
-                                        with open(file_path2, "w", encoding='utf-8-sig') as file:
-                                            data = v_.now_cla
-                                            file.write(str(data))
-                                            time.sleep(0.2)
-                                        os.execl(sys.executable, sys.executable, *sys.argv)
-
-                                        break
-                                time.sleep(0.2)
+                            # for i in range(10):
+                            #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\recover_title.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(440, 210, 540, 240, cla, img, 0.7)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         print("recover_title", imgs_.x, imgs_.y)
+                            #
+                            #         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+                            #         img_array = np.fromfile(full_path, np.uint8)
+                            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #         imgs_ = imgs_set_(490, 370, 600, 400, cla, img, 0.7)
+                            #         if imgs_ is not None and imgs_ != False:
+                            #             print("dead_confirm", imgs_.x, imgs_.y)
+                            #             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            #
+                            #             # 장비 복구 메신져 보내기
+                            #             # why = "장비 복구 했다. 반드시 확인 후 다시 켜라"
+                            #             # line_to_me(cla, why)
+                            #             #
+                            #             # v_.onCollection = False
+                            #             #
+                            #             # dir_path_col = "C:\\my_games\\" + str(v_.game_folder)
+                            #             # file_path_col = dir_path_col + "\\mysettings\\collection\\collection_toggle.txt"
+                            #             #
+                            #             # with open(file_path_col, "w", encoding='utf-8-sig') as file:
+                            #             #     file.write("off")
+                            #             #     time.sleep(0.2)
+                            #             #
+                            #             # dir_path = "C:\\my_games\\load\\rom"
+                            #             # file_path = dir_path + "\\start.txt"
+                            #             # file_path2 = dir_path + "\\cla.txt"
+                            #             # with open(file_path, "w", encoding='utf-8-sig') as file:
+                            #             #     data = 'no'
+                            #             #     file.write(str(data))
+                            #             #     time.sleep(0.2)
+                            #             # with open(file_path2, "w", encoding='utf-8-sig') as file:
+                            #             #     data = v_.now_cla
+                            #             #     file.write(str(data))
+                            #             #     time.sleep(0.2)
+                            #             # os.execl(sys.executable, sys.executable, *sys.argv)
+                            #             #
+                            #             # break
+                            #     time.sleep(0.2)
 
 
 

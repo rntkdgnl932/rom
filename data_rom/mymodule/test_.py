@@ -45,8 +45,13 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
-    time.sleep(1)
-    drag_pos(460, 250, 800, 250, cla)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\menu_sangjum.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(750, 30, 810, 90, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("menu_sangjum", imgs_.x, imgs_.y)
 
     # print("test")
     # pyautogui.screenshot('asd.png', region=(get_region(700, 530, 713, 561, cla)))

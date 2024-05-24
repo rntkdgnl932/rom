@@ -57,7 +57,7 @@ def get_chulsuk(cla):
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\action\\menu_open\\menu_restart.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(870, 290, 930, 360, cla, img, 0.7)
+            imgs_ = imgs_set_(870, 290, 930, 500, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 menu_opened = True
                 print("menu_restart", imgs_.x, imgs_.y)
@@ -66,7 +66,7 @@ def get_chulsuk(cla):
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\menu_point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(770, 290, 800, 320, cla, img, 0.7)
+                imgs_ = imgs_set_(770, 340, 800, 370, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("get_chulsuk : menu_point", imgs_.x, imgs_.y)
                     click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
@@ -142,7 +142,7 @@ def get_chulsuk(cla):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\action\\menu_open\\menu_restart.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(870, 290, 930, 360, cla, img, 0.7)
+                        imgs_ = imgs_set_(870, 290, 930, 500, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.5)
@@ -191,7 +191,7 @@ def get_post(cla):
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\action\\menu_open\\menu_restart.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(870, 290, 930, 360, cla, img, 0.7)
+            imgs_ = imgs_set_(870, 290, 930, 500, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 menu_opened = True
                 print("menu_restart", imgs_.x, imgs_.y)
@@ -200,7 +200,7 @@ def get_post(cla):
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\point\\menu_point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(810, 290, 840, 320, cla, img, 0.7)
+                imgs_ = imgs_set_(810, 340, 840, 370, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("get_post : menu_point", imgs_.x, imgs_.y)
                     click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
@@ -251,7 +251,7 @@ def get_post(cla):
                         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\action\\menu_open\\menu_restart.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(870, 290, 930, 360, cla, img, 0.7)
+                        imgs_ = imgs_set_(870, 290, 930, 500, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.5)
