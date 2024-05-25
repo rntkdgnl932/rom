@@ -97,13 +97,13 @@ def dead_recover(cla):
                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(430, 170, 520, 220, cla, img, 0.7)
+                imgs_ = imgs_set_(300, 170, 600, 220, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("dead_title", imgs_.x, imgs_.y)
                     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(410, 410, 540, 450, cla, img, 0.7)
+                    imgs_ = imgs_set_(300, 410, 600, 450, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("dead_confirm", imgs_.x, imgs_.y)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
