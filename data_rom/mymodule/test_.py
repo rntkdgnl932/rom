@@ -46,12 +46,20 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\get_item\\menu_sangjum.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(750, 30, 810, 90, cla, img, 0.7)
+    imgs_ = imgs_set_(300, 170, 600, 220, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("menu_sangjum", imgs_.x, imgs_.y)
+        print("dead_title", imgs_.x, imgs_.y)
+
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(300, 410, 600, 450, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("dead_confirm", imgs_.x, imgs_.y)
+        time.sleep(0.5)
 
     # print("test")
     # pyautogui.screenshot('asd.png', region=(get_region(700, 530, 713, 561, cla)))

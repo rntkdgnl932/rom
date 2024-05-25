@@ -75,7 +75,7 @@ def dead_recover(cla):
 
         recover_start = False
 
-        for i in range(10):
+        for i in range(60):
             full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\experience_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
