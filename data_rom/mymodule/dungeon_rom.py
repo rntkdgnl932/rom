@@ -757,28 +757,29 @@ def dungeon_join(cla, data):
                     elif dun_2 == "혼돈의성채" or dun_2 == "정령의성채":
 
                         for i in range(10):
-                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\drag_scan_check.PNG"
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(915, 180, 950, 230, cla, img, 0.7)
+                            imgs_ = imgs_set_(0, 30, 960, 580, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                break
-                            else:
-
                                 full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(0, 30, 960, 580, cla, img, 0.7)
+                                imgs_ = imgs_set_for(0, 30, 960, 580, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_for(0, 30, 960, 580, cla, img, 0.7)
-                                    if imgs_ is not None and imgs_ != False:
-                                        if len(imgs_) > 0:
-                                            for s in range(len(imgs_)):
-                                                click_pos_reg(imgs_[s][0], imgs_[s][1], cla)
-                                                time.sleep(0.1)
+                                    if len(imgs_) > 0:
+                                        for s in range(len(imgs_)):
+                                            click_pos_reg(imgs_[s][0], imgs_[s][1], cla)
+                                            time.sleep(0.1)
+
+                            else:
+
+                                full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\drag_scan_check.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(915, 180, 950, 230, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
 
                                 else:
                                     print("lv_close 없")
