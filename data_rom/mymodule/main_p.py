@@ -53,6 +53,7 @@ from auction_rom import auction_start
 from potion_rom import potion_buy
 from get_item_rom import get_sangjum
 from towerofevilspirits import tower_start
+from potion_rom import potion_buy
 
 from stop_event18 import _stop_please
 
@@ -3319,6 +3320,7 @@ class game_Playing(QThread):
                                 elif result_schedule_ == "의뢰하기":
                                     request_start(v_.now_cla)
                                 elif result_schedule_ == "상점사기":
+                                    potion_buy(v_.now_cla)
                                     get_sangjum(v_.now_cla)
                                     myQuest_play_add(v_.now_cla, result_schedule_)
                                 elif result_schedule_ == "거래소등록":
