@@ -47,7 +47,7 @@ from schedule import myQuest_play_check, myQuest_play_add
 from character_select import character_screen_check
 from dungeon_rom import dungeon_start
 from jadong_rom import jadong_start
-from dead import dead_check
+from dead import dead_check, dead_recover
 from request_rom import request_start
 from auction_rom import auction_start
 from potion_rom import potion_buy
@@ -3295,7 +3295,9 @@ class game_Playing(QThread):
                                 _stop_please(v_.now_cla)
 
                                 # 죽었는지 파악
-                                dead_check(v_.now_cla)
+                                result_dead = dead_check(v_.now_cla)
+                                if result_dead == True:
+                                    dead_recover(v_.now_cla)
 
                                 # 일시적인 이벤트(5000)
                                 # temporary_event_start(v_.now_cla)
