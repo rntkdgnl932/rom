@@ -234,6 +234,7 @@ def crash_check(cla, data):
             if imgs_ is not None and imgs_ != False:
                 why = "롬 종료 되었따."
                 logout_ = True
+                crash_game = True
 
 
             else:
