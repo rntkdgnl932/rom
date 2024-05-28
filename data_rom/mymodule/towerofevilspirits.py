@@ -97,7 +97,13 @@ def tower_in(cla):
                                 imgs_ = imgs_set_(300, 120, 600, 200, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     print("뒤로가기")
-                                    break
+                                    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\towerofevilspirits\\evil_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(740, 30, 950, 100, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
                                 time.sleep(0.1)
 
                             confirm_all(cla)
