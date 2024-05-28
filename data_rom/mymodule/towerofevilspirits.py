@@ -15,7 +15,7 @@ def tower_start(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_rom import out_check
     from schedule import myQuest_play_add, myQuest_play_check
-    from dead import dead_check
+    from dead import dead_check, dead_recover
 
     try:
         print("tower_start")
@@ -26,7 +26,9 @@ def tower_start(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(5, 70, 100, 100, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            dead_check(cla)
+            result_dead = dead_check(cla)
+            if result_dead == True:
+                dead_recover(cla)
         else:
             # 진행중이지 않다면 악령의 탑 시작하기
             tower_in(cla)
