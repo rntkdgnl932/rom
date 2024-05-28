@@ -294,6 +294,7 @@ def dead_recover(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(130, 210, 210, 250, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
+                            clean_screen(cla)
                             dead_ = True
                         else:
 
@@ -336,51 +337,6 @@ def dead_recover(cla):
                                 else:
                                     click_pos_2(73, 370, cla)
                                 time.sleep(0.2)
-
-                            # for i in range(10):
-                            #     full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\recover_title.PNG"
-                            #     img_array = np.fromfile(full_path, np.uint8)
-                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            #     imgs_ = imgs_set_(440, 210, 540, 240, cla, img, 0.7)
-                            #     if imgs_ is not None and imgs_ != False:
-                            #         print("recover_title", imgs_.x, imgs_.y)
-                            #
-                            #         full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
-                            #         img_array = np.fromfile(full_path, np.uint8)
-                            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            #         imgs_ = imgs_set_(490, 370, 600, 400, cla, img, 0.7)
-                            #         if imgs_ is not None and imgs_ != False:
-                            #             print("dead_confirm", imgs_.x, imgs_.y)
-                            #             click_pos_reg(imgs_.x, imgs_.y, cla)
-                            #
-                            #             # 장비 복구 메신져 보내기
-                            #             # why = "장비 복구 했다. 반드시 확인 후 다시 켜라"
-                            #             # line_to_me(cla, why)
-                            #             #
-                            #             # v_.onCollection = False
-                            #             #
-                            #             # dir_path_col = "C:\\my_games\\" + str(v_.game_folder)
-                            #             # file_path_col = dir_path_col + "\\mysettings\\collection\\collection_toggle.txt"
-                            #             #
-                            #             # with open(file_path_col, "w", encoding='utf-8-sig') as file:
-                            #             #     file.write("off")
-                            #             #     time.sleep(0.2)
-                            #             #
-                            #             # dir_path = "C:\\my_games\\load\\rom"
-                            #             # file_path = dir_path + "\\start.txt"
-                            #             # file_path2 = dir_path + "\\cla.txt"
-                            #             # with open(file_path, "w", encoding='utf-8-sig') as file:
-                            #             #     data = 'no'
-                            #             #     file.write(str(data))
-                            #             #     time.sleep(0.2)
-                            #             # with open(file_path2, "w", encoding='utf-8-sig') as file:
-                            #             #     data = v_.now_cla
-                            #             #     file.write(str(data))
-                            #             #     time.sleep(0.2)
-                            #             # os.execl(sys.executable, sys.executable, *sys.argv)
-                            #             #
-                            #             # break
-                            #     time.sleep(0.2)
 
 
 
