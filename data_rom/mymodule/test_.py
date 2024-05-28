@@ -46,12 +46,12 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\towerofevilspirits\\tower_in.PNG"
+    full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\0000.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(5, 70, 100, 100, cla, img, 0.7)
+    imgs_ = imgs_set_(380, 280, 450, 320, cla, img, 0.95)
     if imgs_ is not None and imgs_ != False:
-        print("tower_intower_intower_in", imgs_.x, imgs_.y)
+        print("0000000000000000000000000000", imgs_.x, imgs_.y)
         time.sleep(0.5)
     else:
         print("안보이")
