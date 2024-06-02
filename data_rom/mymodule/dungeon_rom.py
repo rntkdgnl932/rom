@@ -150,15 +150,23 @@ def dungeon_join(cla, data):
 
                 if dun_1 == "일반":
                     for i in range(10):
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_clicked.PNG"
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(15, 100, 90, 130, cla, img, 0.9)
+                        imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("dun_clicked", imgs_.x, imgs_.y)
-                            break
+                            print("x_close", imgs_.x, imgs_.y)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
-                            click_pos_2(50, 105, cla)
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(15, 100, 90, 130, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("dun_clicked", imgs_.x, imgs_.y)
+                                break
+                            else:
+                                click_pos_2(50, 105, cla)
                         time.sleep(0.5)
 
                     if dun_2 == "고대미궁":
@@ -424,15 +432,23 @@ def dungeon_join(cla, data):
 
                 elif dun_1 == "특수":
                     for i in range(10):
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_clicked.PNG"
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\cleen_screen\\lv_close.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(95, 100, 160, 130, cla, img, 0.9)
+                        imgs_ = imgs_set_(600, 140, 660, 180, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("dun_clicked", imgs_.x, imgs_.y)
-                            break
+                            print("x_close", imgs_.x, imgs_.y)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
-                            click_pos_2(125, 105, cla)
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dungeon\\dun_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(90, 100, 160, 130, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("dun_clicked", imgs_.x, imgs_.y)
+                                break
+                            else:
+                                click_pos_2(125, 105, cla)
                         time.sleep(0.5)
                     # 새로운 맵
                     if dun_2 == "엘프의광산":
