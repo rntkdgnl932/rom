@@ -162,18 +162,29 @@ def dead_recover(cla):
                         time.sleep(0.5)
 
                     else:
-                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+                        full_path = "c:\\my_games\\rom\\data_rom\\imgs\\title\\youngjijun.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(300, 410, 600, 450, cla, img, 0.7)
+                        imgs_ = imgs_set_(800, 30, 950, 80, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("dead_confirm", imgs_.x, imgs_.y)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            clean_screen(cla)
+                            time.sleep(1)
+                            click_pos_2(700, 50, cla)
                             time.sleep(0.5)
+                        else:
+                            full_path = "c:\\my_games\\rom\\data_rom\\imgs\\dead\\dead_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 410, 600, 450, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("dead_confirm", imgs_.x, imgs_.y)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
 
 
-                        click_pos_2(735, 50, cla)
-                        time.sleep(0.5)
+                            click_pos_2(735, 50, cla)
+                            time.sleep(0.5)
             time.sleep(1)
 
         if recover_start == True:
