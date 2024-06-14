@@ -306,7 +306,8 @@ def crash_check(cla, data):
                         imgs_ = imgs_set_(810, 520, 940, 560, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             why = "롬 밖으로 튕겼지만 재 로그인 성공"
-                            line_to_me(v_.now_cla, why)
+                            # line_to_me(v_.now_cla, why)
+                            print(why)
                             logout_ = False
                             break
                         else:
